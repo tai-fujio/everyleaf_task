@@ -1,8 +1,9 @@
 <h1>タスク新規作成</h1>
-<%= form_with(model:@task,local:true) |f| %>
-  <%= f.label :タスク名%>
-  <%= f.text_field :task_name%>
+<%= form_with(model: @task,local: true) do |f| %>
+  <%= f.label :タスク名 %>
+  <%= f.text_field :task_name %><br>
   <%= f.label :タスク詳細%>
-  <%= f.text_field :task_details%>
-  <%= f.submit %>
+  <%= f.text_field :task_details %><br>
+  <%= f.submit %><br>
 <% end %>
+<%= link_to "戻る", tasks_path %>

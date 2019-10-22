@@ -8,9 +8,9 @@
       <%@tasks.each do |t|%>
         <td><%= t.task_name%></td>
         <td><%= t.task_details%></td>
-        <%= link_to "詳細",task_path(t.id)%>
-        <%= link_to "編集",edit_task_path(t.id)%>
-        <%= link_to "削除",task_path(t.id),method: :delete%>
+        <td><%= link_to "詳細",task_path(t.id)%></td>
+        <td><%= link_to "編集",edit_task_path(t.id)%></td>
+        <td><%= link_to "削除",task_path(t.id),method: :delete%></td>
       <% end %>  
     </tr>
   </table>
