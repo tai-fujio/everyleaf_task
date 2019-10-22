@@ -1,24 +1,20 @@
-# README
+# データ構造の設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ユーザー
+* ユーザー名　user_name:string
+* ユーザーパスワード user_password:string
+* ユーザーメールアドレス user_email:string
 
-Things you may want to cover:
+タスク
+* タスク名 task_name:string
+* タスク期限 task_date:date
+* タスク優先順位 task_priority:integer
+* タスクステータス（未着手・着手・完了）task_status:integer
+* タスクラベリング task_labeling:boolean
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ラベリング
+* ビジネス business:boolean
+* プライベート private:boolean
+* 屋内 indoor:boolean
+* 屋外 outdoor:boolean
+* 海外 overseas:boolean
