@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show,:edit]
+  before_action :set_task, only: [:show,:edit,:update,:destroy]
 
   def index
     @tasks = Task.all
@@ -11,9 +11,29 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
-  def edit
-    @task = Task.new(task_params)
-  end
+  def create
+    Task.create(task_params)
+    flash[:notice] = "タスクを作成しました"
+    redirect_to new_task_path
+  end  
+
+  def destroy
+    @task.destroy
+    flash[:notice] = "タスクを削除しました"
+    redirect_to tasks_path
+  end  
+
+  def edit; end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update
+      flash[:notice] = "タスクを編集しました"
+      redirect_to tasks_path
+    else 
+      render :edit
+    end  
+  end  
 
   private
   def set_task

@@ -1,5 +1,5 @@
 <h1>タスク新規作成</h1>
-<%= form_with(model:@task) local:true |f| %>
+<%= form_with(model:@task,local:true) |f| %>
   <%= f.label :タスク名%>
   <%= f.text_field :task_name%>
   <%= f.label :タスク詳細%>
