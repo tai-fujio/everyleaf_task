@@ -7,6 +7,7 @@
 
 タスク
 * タスク名 task_name:string
+* タスク詳細　task_details:text
 * タスク期限 task_date:date
 * タスク優先順位 task_priority:integer
 * タスクステータス（未着手・着手・完了）task_status:integer
