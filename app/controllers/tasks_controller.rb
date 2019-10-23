@@ -12,9 +12,9 @@ class TasksController < ApplicationController
   end
 
   def create
-    Task.create(task_params)
+    @task = Task.create(task_params)
     flash[:notice] = "タスクを作成しました"
-    redirect_to new_task_path
+    redirect_to task_path(@task.id)
   end  
 
   def destroy

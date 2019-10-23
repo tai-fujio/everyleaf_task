@@ -7,9 +7,9 @@
     </tr>
     <%@tasks.each do |t|%>
     <tr>
-      <td><%= t.task_name%></td>
-      <td><%= t.task_details%></td>
-      <td><%= link_to "詳細",task_path(t.id)%></td>
+      <td><p class = index_task_name><%= t.task_name%></p></td>
+      <td><p class = index_task_details><%= t.task_details%></p></td>
+      <td><p class = index_details_button><%= link_to "詳細",task_path(t.id)%></p></td>
       <td><%= link_to "編集",edit_task_path(t.id)%></td>
       <td><%= link_to "削除",task_path(t.id),method: :delete%></td>
     </tr>

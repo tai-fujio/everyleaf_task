@@ -5,7 +5,7 @@
     <%= f.text_field :task_name %><br>
     <%= f.label :タスク詳細%>
     <%= f.text_field :task_details %><br>
-    <%= f.submit %><br>
+    <%= f.submit "作成",class: "create_task_button"%><br>
   <% end %>
   <%= link_to "戻る", tasks_path %>
 </div> 
