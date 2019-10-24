@@ -1,11 +1,11 @@
 <div class = "container">
-  <h1>タスク編集</h1>
+  <h1><%= t('edit.task_edit')%></h1>
   <%= form_with(model:@task,local:true) do |f| %>
-    <%= f.label :タスク名 %>:
+    <%= f.label t('edit.task_name') %> :
     <%= f.text_field :task_name %><br>
-    <%= f.label :タスク詳細 %>:
+    <%= f.label t('edit.task_details')%> :
     <%= f.text_area :task_details %><br>
-    <%= f.submit %><br>
+    <%= f.submit t('edit.edit_button')%><br>
   <% end %>
-  <%= link_to "戻る", tasks_path %>
+  <%= link_to t('edit.back'), tasks_path %>
 </div>   

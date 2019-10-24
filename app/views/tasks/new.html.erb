@@ -1,11 +1,11 @@
 <div class = "container">
-  <h1>タスク新規作成</h1>
+  <h1><%= t('new.task_new_create')%></h1>
   <%= form_with(model: @task,local: true) do |f| %>
-    <%= f.label :タスク名 %>
+    <%= f.label t('new.task_name') %>
     <%= f.text_field :task_name %><br>
-    <%= f.label :タスク詳細%>
+    <%= f.label t('new.task_details')%>
     <%= f.text_field :task_details %><br>
-    <%= f.submit "作成",class: "create_task_button"%><br>
+    <%= f.submit t('new.create'),class: "create_task_button"%><br>
   <% end %>
-  <%= link_to "戻る", tasks_path %>
+  <%= link_to t('new.back'), tasks_path %>
 </div> 
