@@ -28,14 +28,13 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
-  gem 'factory_bot_rails'
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'pry-rails'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'faker'
 end
 
@@ -48,6 +47,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'launchy'
   gem 'capybara-webkit'
+  gem 'factory_bot_rails'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
