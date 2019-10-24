@@ -1,4 +1,4 @@
-srequire 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe Task, type: :model do
   it "is valid with a task_name, task_details" do
