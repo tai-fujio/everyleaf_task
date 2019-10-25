@@ -1,24 +1,33 @@
-# README
+## データ構造の設計　　
+#### User　
+|カラム名|データ型|
+|:--:|:--:|
+|id|integer|
+|user_name|string|
+|user_email|string|
+|password_digest|string|
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Task　　
+|カラム名|データ型|
+|:--:|:--:|
+|id|integer|
+|user_id(FK)|references|
+|task_name|string|
+|task_details|text|
+|task_deadline|date|
+|task_priority|integer|
+|task_status|integer|
+|labeling_id(FK)|references|
 
-Things you may want to cover:
+#### Commit
+|カラム名|データ型|
+|:--:|:--:|
+|id|integer|
+|user_id(FK)|integer|
+|task_id(FK)|integer|
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### labeling
+|カラム名|データ型|
+|:--:|:--:|
+|id|integer|
+|labeling_name|string|
