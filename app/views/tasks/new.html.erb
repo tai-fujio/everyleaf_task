@@ -5,6 +5,12 @@
     <%= f.text_field :task_name %><br>
     <%= f.label t('new.task_details')%>
     <%= f.text_field :task_details %><br>
+    <%= f.label t('new.task_deadline')%>
+    <%= f.text_field :task_deadline %><br>
+    <%= f.label t('new.task_status')%>
+    <%= f.text_field :task_status %><br>
+    <%= f.label t('new.task_priority')%>
+    <%= f.text_field :task_priority %><br>
     <%= f.submit t('new.create'),class: "create_task_button"%><br>
   <% end %>
   <%= link_to t('new.back'), tasks_path %>

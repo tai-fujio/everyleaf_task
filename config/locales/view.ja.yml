@@ -19,6 +19,9 @@ ja:
     task_details: タスク詳細
     create: 新規作成
     back: 戻る
+    task_deadline: タスク期限
+    task_status: タスクステータス
+    task_priority: タスク優先順位
   show:
     task_details: タスク詳細
     task_name: タスク名
