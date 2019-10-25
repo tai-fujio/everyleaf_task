@@ -1,11 +1,11 @@
 # データ構造の設計
 
--ユーザー
+##ユーザー
  -ユーザー名　user_name:string
  -ユーザーパスワード user_password:string
  -ユーザーメールアドレス user_email:string
 
--タスク
+##タスク
  -タスク名 task_name:string
  -タスク詳細　task_details:text
  -タスク期限 task_date:date
@@ -13,7 +13,7 @@
  -タスクステータス（未着手・着手・完了）task_status:integer
  -タスクラベリング task_labeling:boolean
 
--ラベリング
+##ラベリング
  -ビジネス business:boolean
  -プライベート private:boolean
  -屋内 indoor:boolean
