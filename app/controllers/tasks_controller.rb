@@ -36,6 +36,7 @@ class TasksController < ApplicationController
       flash[:notice] = "タスクを編集しました"
       redirect_to tasks_path
     else 
+      flash[:notice] = "タスクの編集に失敗しました"
       render :edit
     end  
   end  
