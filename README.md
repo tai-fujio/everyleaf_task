@@ -1,24 +1,14 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## HerokuへのDeploy手順　　　
+#### 開発環境　　
+- ruby 2.6.5　　
+- Rails 5.2.3　　
+- PostgreSQL　12.0　　
+#### 手順
+1. Herokuに登録する　　
+1. Herokuをインストールする　　
+1. Herokuにログインする $heroku login　　
+1. Herokuに新規アプリケーションをつくる
+ $heroku create　　
+1. Herokuにデプロイする　　
+ $git push heroku master　　　
+1. DBのmigrationを行う　　
