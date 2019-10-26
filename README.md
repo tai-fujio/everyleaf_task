@@ -13,7 +13,8 @@
  $ heroku create　　
 1. Herokuにデプロイする　　
  $ git push heroku master　　
-    1. pushがrejectされた場合 $ heroku buildpacks:set heroku/ruby　　
-    2.$ heroku buildpacks:add --index 1 heroku/nodejs を試す　　
+    1. pushがrejectされた場合　　
+        1.$ heroku buildpacks:set heroku/ruby　　
+        2.$ heroku buildpacks:add --index 1 heroku/nodejs を試す　　
 1. DBのmigrationを行う $ heroku run rails db:migrate　　
 1. Herokuアプリし確認する　$ heroku configでアドレスを確認　　
