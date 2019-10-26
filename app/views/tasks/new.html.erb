@@ -1,0 +1,20 @@
+<div class = "container">
+  <h1><%= t('new.task_new_create')%></h1>
+  <% if @task.errors.any? %>
+    <div>
+      <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>  
+      </ul>
+    </div>
+  <% end %>
+  <%= form_with(model: @task,local: true) do |f| %>
+    <%= f.label t('new.task_name') %>
+    <%= f.text_field :task_name %><br>
+    <%= f.label t('new.task_details')%>
+    <%= f.text_field :task_details %><br>
+    <%= f.submit t('new.create'),class: "create_task_button"%><br>
+  <% end %>
+  <%= link_to t('new.back'), tasks_path %>
+</div> 

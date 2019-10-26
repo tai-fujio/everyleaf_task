@@ -1,24 +1,52 @@
-# README
+## データ構造の設計　　
+#### User　
+|カラム名|データ型|
+|:--:|:--:|
+|id|integer|
+|user_name|string|
+|user_email|string|
+|password_digest|string|
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Task　　
+|カラム名|データ型|
+|:--:|:--:|
+|id|integer|
+|user_id(FK)|references|
+|task_name|string|
+|task_details|text|
+|task_deadline|date|
+|task_priority|integer|
+|task_status|integer|
+|labeling_id(FK)|references|
 
-Things you may want to cover:
+#### Commit
+|カラム名|データ型|
+|:--:|:--:|
+|id|integer|
+|user_id(FK)|integer|
+|task_id(FK)|integer|
 
-* Ruby version
+#### labeling
+|カラム名|データ型|
+|:--:|:--:|
+|id|integer|
+|labeling_name|string|
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## HerokuへのDeploy手順　　　
+#### 開発環境　　
+- ruby 2.6.5　　
+- Rails 5.2.3　　
+- PostgreSQL　12.0　　
+#### 手順
+1. Herokuにサインアップする
+1. Herokuをインストールする $ brew tap heroku/brew && brew install heroku
+1. Herokuにログインする $ heroku login
+1. アセットファイルをプリコンパイルする rails assets:precompile RAILS_ENV=production
+1. git commitでコミットする
+1. Herokuに新規アプリケーションをつくる　$ heroku create
+1. Herokuにデプロイする　$ git push heroku master
+    1. pushがrejectされた場合
+        1.$ heroku buildpacks:set heroku/ruby を試す
+        2.$ heroku buildpacks:add --index 1 heroku/nodejs を試す
+1. DBのmigrationを行う $ heroku run rails db:migrate
+1. Herokuアプリし確認する　$ heroku configでアドレスを確認

@@ -1,0 +1,6 @@
+<div class = "container">
+<h1><%= t('show.task_details')%></h1>
+  <p class = "show_task_name"><%= t('show.task_name') %> : <%=@task.task_name %></p>
+  <p class = "show_task_details"><%= t('show.task_details')%> : <%= @task.task_details %></p>
+  <%= link_to t('show.back'), tasks_path %>
+</div>  
