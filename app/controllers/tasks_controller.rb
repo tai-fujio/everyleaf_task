@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show,:edit,:update,:destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.order(created_at: :desc)
   end
 
   def show; end
@@ -13,8 +13,13 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create(task_params)
+    if @task.save
     flash[:notice] = "タスクを作成しました"
     redirect_to task_path(@task.id)
+    else
+    flash[:notice] = "タスクの作成に失敗しました"
+    render :new
+    end
   end  
 
   def destroy

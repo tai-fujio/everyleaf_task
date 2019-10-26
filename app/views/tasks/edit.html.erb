@@ -1,11 +1,20 @@
 <div class = "container">
-  <h1>タスク編集</h1>
-  <%= form_with(model:@task,local:true) do |f| %>
-    <%= f.label :タスク名 %>:
-    <%= f.text_field :task_name %><br>
-    <%= f.label :タスク詳細 %>:
-    <%= f.text_area :task_details %><br>
-    <%= f.submit %><br>
+  <h1><%= t('edit.task_edit')%></h1>
+  <% if @task.errors.any? %>
+    <div>
+      <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>  
+      </ul>
+    </div>
   <% end %>
-  <%= link_to "戻る", tasks_path %>
+  <%= form_with(model:@task,local:true) do |f| %>
+    <%= f.label t('edit.task_name') %> :
+    <%= f.text_field :task_name %><br>
+    <%= f.label t('edit.task_details')%> :
+    <%= f.text_area :task_details %><br>
+    <%= f.submit t('edit.edit_button')%><br>
+  <% end %>
+  <%= link_to t('edit.back'), tasks_path %>
 </div>   
