@@ -1,14 +1,5 @@
 <div class = "container">
-  <h1><%= t('edit.task_edit')%></h1>
-  <% if @task.errors.any? %>
-    <div>
-      <ul>
-        <% @task.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>  
-      </ul>
-    </div>
-  <% end %>
+  <h1 class = "title"><%= t('edit.task_edit')%></h1>
   <%= form_with(model:@task,local:true) do |f| %>
     <%= f.label t('edit.task_name') %> :
     <%= f.text_field :task_name %><br>
