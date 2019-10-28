@@ -32,13 +32,13 @@
   <h1 class = "title"><%= t('index.tasks')%></h1>
   <table class="table table-striped">
     <tr>
-      <th scope = "col"><%= t('index.task_name')%></th>
-      <th colspan="4" scope = "col"><%= t('index.task_details')%></th>
+      <th scope = "col"><%= t('index.name')%></th>
+      <th colspan="4" scope = "col"><%= t('index.detail')%></th>
     </tr>
     <%@tasks.each do |task|%>
     <tr>
-      <td><p class = index_task_name><%= task.task_name%>&nbsp;</p></td>
-      <td><p class = index_task_details><%= task.task_details%>&nbsp;</p></td>
+      <td><p class = index_name><%= task.name%>&nbsp;</p></td>
+      <td><p class = index_detail><%= task.detail%>&nbsp;</p></td>
       <td class="btn-link"><p class = index_details_button><%= link_to t('index.details'),task_path(task.id)%>&nbsp;</p></td>
       <td class="btn-link"><%= link_to t('index.edit'),edit_task_path(task.id)%>&nbsp;</td>
       <td class="btn-link"><%= link_to t('index.destroy'),task_path(task.id),method: :delete%>&nbsp;</td>

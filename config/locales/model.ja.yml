@@ -5,5 +5,5 @@ ja:
 
     attributes:
       task:
-        task_name: タスク名
-        task_details: タスク詳細 
+        name: タスク名
+        detail: タスク詳細 

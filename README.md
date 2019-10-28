@@ -11,8 +11,8 @@
 |:--:|:--:|
 |id|integer|
 |user_id(FK)|references|
-|task_name|string|
-|task_details|text|
+|name|string|
+|detail|text|
 |task_deadline|date|
 |task_priority|integer|
 |task_status|integer|
