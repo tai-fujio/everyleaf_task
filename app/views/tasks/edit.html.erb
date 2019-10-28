@@ -6,7 +6,7 @@
     <%= f.label t('edit.detail')%>
     <%= f.text_field :detail %><br>
     <%= f.label t('edit.deadline')%>
-    <%= f.datetime_field :detail %><br>
+    <%= f.date_field :detail %><br>
     <%= f.label t('edit.priority')%>
     <%= f.select :priority ,{},{},{style: "width:50px;"} do %>
       <% ["高","中","低"].each do |priority| %>
