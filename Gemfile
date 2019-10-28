@@ -55,3 +55,6 @@ gem 'bcrypt', '~> 3.1.11'
 gem 'rails_12factor', group: :production
 gem 'kaminari'
 gem 'ransack'
+gem 'will_paginate'
+gem 'bootstrap-sass'
+gem 'will_paginate-bootstrap', '1.0.1'

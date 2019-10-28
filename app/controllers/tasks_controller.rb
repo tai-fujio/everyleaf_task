@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   def index
     @q = Task.ransack(params[:q])
     @tasks = @q.result(distinct: true).sorted
-    @tasks = @tasks.page(params[:page])
+    @tasks = @tasks.paginate(page: params[:page], per_page: 10)
   end
 
   def show; end
