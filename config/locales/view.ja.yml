@@ -7,19 +7,31 @@ ja:
     edit: 編集
     destroy: 削除
     create: 新規作成
+    deadline: 終了期限
+    priority: 優先順位
+    status: ステータス
   edit:
     task_edit: タスク編集
     name: タスク名
     detail: タスク詳細
     edit_button: 更新する
     back: 戻る
+    deadline: 終了期限
+    priority: 優先順位
+    status: ステータス
   new:
     task_new_create: タスク新規作成
     name: タスク名
     detail: タスク詳細
     create: 新規作成
     back: 戻る
+    deadline: 終了期限
+    priority: 優先順位
+    status: ステータス
   show:
     detail: タスク詳細
     name: タスク名
     back: 戻る
+    deadline: 終了期限
+    priority: 優先順位
+    status: ステータス

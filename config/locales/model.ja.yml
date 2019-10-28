@@ -6,4 +6,7 @@ ja:
     attributes:
       task:
         name: タスク名
-        detail: タスク詳細 
+        detail: タスク詳細
+        priority: 優先順位
+        status: ステータス
+        deadline: 終了期限

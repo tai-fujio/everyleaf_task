@@ -5,7 +5,21 @@
     <%= f.text_field :name %><br>
     <%= f.label t('new.detail')%>
     <%= f.text_field :detail %><br>
-    <%= f.submit t('new.create'),class: "create_task_button"%><br>
+    <%= f.label t('new.deadline')%>
+    <%= f.date_field :detail %><br>
+    <%= f.label t('new.priority')%>
+    <%= f.select :priority ,{},{},{style: "width:50px;"} do %>
+      <% ["高","中","低"].each do |priority| %>
+      <%= content_tag(:option, priority, value: priority) %>
+      <% end %>
+    <% end %><br>
+    <%= f.label t('new.status')%>
+    <%= f.select :status ,{},{},{style: "width:80px;"} do %>
+      <% ["未着手","着手","完了"].each do |status| %>
+      <%= content_tag(:option, status, value: status) %>
+      <% end %>
+    <% end %><br>
+    <%= f.submit t('new.create'),class: "create_task_button btn-primary"%><br>
   <% end %>
-  <%= link_to t('new.back'), tasks_path %>
+  <%= link_to t('new.back'), tasks_path%>
 </div> 
