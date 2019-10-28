@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show,:edit,:update,:destroy]
 
   def index
-    @tasks = Task.order(created_at: :desc)
+    @tasks = Task.order(created_at: :desc).page(params[:page])
   end
 
   def show; end
@@ -36,6 +36,7 @@ class TasksController < ApplicationController
       flash[:notice] = "タスクを編集しました"
       redirect_to tasks_path
     else 
+      flash[:notice] = "タスクの編集に失敗しました"
       render :edit
     end  
   end  
