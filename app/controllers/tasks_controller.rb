@@ -2,7 +2,9 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show,:edit,:update,:destroy]
 
   def index
-    @tasks = Task.order(created_at: :desc).page(params[:page])
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result(distinct: true)
+    # @tasks = Task.order(created_at: :desc).page(params[:page])
   end
 
   def show; end
@@ -49,5 +51,9 @@ class TasksController < ApplicationController
   def task_params
   params.require(:task).permit(:name,:detail,:deadline,:priority,:status)
   end
+
+  def search_params
+  params.require(:q).permit(:name_cont)
+  end 
 
 end

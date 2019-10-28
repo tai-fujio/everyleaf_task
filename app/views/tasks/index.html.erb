@@ -23,10 +23,11 @@
           </div>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <%= search_form_for(@q,local: true) do |s|%>
+        <%= s.label :name, t('index.task_search')%>
+        <%= s.search_field :name_cont%>
+        <%= s.submit class:"btn-primary"%>
+      <% end %>
     </div>
   </nav>
   <h1 class = "title"><%= t('index.tasks')%></h1>
@@ -34,7 +35,7 @@
     <tr>
       <th scope = "col"><%= t('index.name')%></th>
       <th scope = "col"><%= t('index.detail')%></th>
-      <th scope = "col"><%= t('index.deadline')%></th>
+      <th scope = "col"><%= sort_link(@q,:dead_line, t('index.deadline')) %></th>
       <th scope = "col"><%= t('index.priority')%></th>
       <th colspan = 4 scope = "col"><%= t('index.status')%></th>
     </tr>
@@ -57,5 +58,5 @@
     <% end %>  
   </table>
   <%=link_to t('index.create'),new_task_path%>
-  <%= paginate @tasks %>
+  <%#= paginate @tasks %>
 </div>     

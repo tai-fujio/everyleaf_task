@@ -10,6 +10,7 @@ ja:
     deadline: 終了期限
     priority: 優先順位
     status: ステータス
+    task_search: タスク名検索
   edit:
     task_edit: タスク編集
     name: タスク名
