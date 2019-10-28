@@ -43,8 +43,13 @@
       <td><p class = index_name><%= task.name%>&nbsp;</p></td>
       <td><p class = index_detail><%= task.detail%>&nbsp;</p></td>
       <td><p class = index_deadline><%= task.deadline%>&nbsp;</p></td>
-      <td><p class = index_priority><%= task.priority%>&nbsp;</p></td>
-      <td><p class = index_status<%= task.status%></p></td>
+      <td><p class = index_priority>
+        <% if task.priority == "高" %>
+          <p class = task_priority_color><%= task.priority%></p>
+        <% else %>
+          <%= task.priority %>
+        <% end %>
+      <td><p class = index_status><%= task.status%>&nbsp;</p></td>
       <td class="btn-link"><p class = index_details_button><%= link_to t('index.details'),task_path(task.id)%>&nbsp;</p></td>
       <td class="btn-link"><%= link_to t('index.edit'),edit_task_path(task.id)%>&nbsp;</td>
       <td class="btn-link"><%= link_to t('index.destroy'),task_path(task.id),method: :delete%>&nbsp;</td>
