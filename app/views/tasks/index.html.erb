@@ -26,7 +26,7 @@
       <%= search_form_for(@q,local: true) do |s|%>
         <%= s.label :name, t('index.index_search')%>
         <%= s.search_field:name_cont_all,placeholder: "タスク名",style: "width:150px;"%>
-        <%= s.select :priority_cont_all, [["低"], ["中"], ["高"]], :prompt => "優先順位" %>
+        <%= s.select :status_cont_all, [["未着手"], ["着手中"], ["完了"]], :prompt => "ステータス" %>
         <%#= s.search_field:priority_cont_all,placeholder: "優先順位",style: "width:150px;"%>
         <%= s.submit class:"btn-primary"%>
       <% end %>
