@@ -9,8 +9,8 @@
     <%= f.date_field :deadline %><br>
     <%= f.label t('new.priority')%>
     <%= f.select :priority ,{},{},{style: "width:50px;"} do %>
-      <% ["高","中","低"].each do |priority| %>
-      <%= content_tag(:option, priority, value: priority) %>
+      <% {a: "低",b: "中",c: "高"}.each do |key,value| %>
+      <%= content_tag(:option, value, value:[key,value]) %>
       <% end %>
     <% end %><br>
     <%= f.label t('new.status')%>

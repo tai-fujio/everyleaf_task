@@ -11,6 +11,7 @@ ja:
     priority: 優先順位
     status: ステータス
     task_search: タスク名検索
+    title: タスク管理アプリケーション
   edit:
     task_edit: タスク編集
     name: タスク名

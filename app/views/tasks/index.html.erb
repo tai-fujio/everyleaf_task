@@ -36,8 +36,10 @@
     <tr>
       <th scope = "col"><%= t('index.name')%></th>
       <th scope = "col"><%= t('index.detail')%></th>
-      <th scope = "col"><%= sort_link(@q,:dead_line, t('index.deadline')) %></th>
-      <th scope = "col"><%= t('index.priority')%></th>
+      <th scope = "col"><%= sort_link(@q,:deadline, t('index.deadline'),default_order: :desc) %></th>
+      <th scope = "col"><%= sort_link(@q,:priority,t('index.priority'),default_order: :desc) %></th>
+  <%#= sort_link(@q, :last_name, %i(last_name first_name),
+  default_order: { last_name: 'asc', first_name: 'desc' }) %>
       <th colspan = 4 scope = "col"><%= t('index.status')%></th>
     </tr>
     <%@tasks.each do |task|%>
@@ -46,15 +48,17 @@
       <td><p class = index_detail><%= task.detail%>&nbsp;</p></td>
       <td><p class = index_deadline><%= task.deadline%>&nbsp;</p></td>
       <td><p class = index_priority>
-        <% if task.priority == "高" %>
-          <p class = task_priority_color><%= task.priority%></p>
-        <% else %>
-          <%= task.priority %>
-        <% end %>
+        <% if task.priority %>
+          <% if task.priority.split.last == "高" %>
+            <p class = task_priority_color><%= task.priority.split.last%></p>
+          <% else %>
+            <%= task.priority.split.last %>
+          <% end %>
+        <% end %>  
       <td><p class = index_status><%= task.status%>&nbsp;</p></td>
       <td class="btn-link"><p class = index_details_button><%= link_to t('index.details'),task_path(task.id)%>&nbsp;</p></td>
       <td class="btn-link"><%= link_to t('index.edit'),edit_task_path(task.id)%>&nbsp;</td>
-      <td class="btn-link"><%= link_to t('index.destroy'),task_path(task.id),method: :delete%>&nbsp;</td>
+      <td class="btn-link"><%= link_to t('index.destroy'),task_path(task.id),method: :delete,data:{confirm: "削除してもよろしいですか"}%>&nbsp;</td>
     </tr>
     <% end %>  
   </table>
