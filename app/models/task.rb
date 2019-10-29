@@ -12,5 +12,4 @@ class Task < ApplicationRecord
       end
     end  
   end  
-  
-  end
+end
