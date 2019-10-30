@@ -8,24 +8,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <%=link_to "Home" ,tasks_path ,class: "nav-link"%>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+          <%=link_to "Home" ,tasks_path ,class: "nav-link btn btn-outline-primary"%>
         </li>
       </ul>
       <%= search_form_for(@q,local: true) do |s|%>
         <%= s.label :name, t('index.index_search')%>
-        <%= s.search_field:name_cont_all,placeholder: "タスク名",style: "width:150px;"%>
+        <%= s.search_field:name_cont_all,placeholder: "タスク名",style: "width:120px;"%>
         <%= s.select :status_cont_all, [["未着手"], ["着手中"], ["完了"]], :prompt => "ステータス" %>
         <%#= s.search_field:priority_cont_all,placeholder: "優先順位",style: "width:150px;"%>
         <%= s.submit class:"btn-primary"%>
