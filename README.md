@@ -3,9 +3,10 @@
 |カラム名|データ型|
 |:--:|:--:|
 |id|integer|
-|user_name|string|
-|user_email|string|
+|name|string|
+|email|string|
 |password_digest|string|
+|admin?|boolean|
 #### Task　　
 |カラム名|データ型|
 |:--:|:--:|
@@ -13,9 +14,9 @@
 |user_id(FK)|references|
 |name|string|
 |detail|text|
-|task_deadline|date|
-|task_priority|integer|
-|task_status|integer|
+|deadline|date|
+|priority|integer|
+|status|integer|
 |labeling_id(FK)|references|
 #### Commit
 |カラム名|データ型|
@@ -43,9 +44,9 @@
 1. Herokuに新規アプリケーションをつくる
  $ heroku create
 1. Herokuにデプロイする
-1. 番号付きリスト1 $ git push heroku master
+ $ git push heroku master
     - pushがrejectされた場合
-        - $ heroku buildpacks:set heroku/ruby
-        - $ heroku buildpacks:add --index 1 heroku/nodejs を試す
+      - $ heroku buildpacks:set heroku/ruby
+      - $ heroku buildpacks:add --index 1 heroku/nodejs を試す
 1. DBのmigrationを行う $ heroku run rails db:migrate
 1. Herokuアプリし確認する　$ heroku configでアドレスを確認
