@@ -27,7 +27,14 @@ RSpec.describe Task, type: :system do
       it "タスク一覧にステータスが表示される" do
         visit tasks_path
         expect(page.find(".index_status",match: :first)).to have_content "着手中"
-      end  
+      end
+      specify "検索した文字を含むレコードが一覧に表示される" do
+        visit tasks_path
+        fill_in "q[name_cont_all]", with: "テスト3"
+        click_button("検索")
+        expect(page).to have_content "テスト3"
+        expect(page).to_not have_content "テスト4"
+      end
     end
 
     context "tasks#createのテスト" ,driver: :webkit do
