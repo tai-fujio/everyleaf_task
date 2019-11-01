@@ -1,2 +1,13 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class = "container">
+  <h1><%= t('sessions_new.title')%></h1>
+  <h1 class = "title"><%= t('sessions_new.sessions')%></h1>
+  <%= form_with(scope: :session,url:sessions_path,local:true) do |f| %>
+    <%= f.label t('sessions_new.name') %>
+    <%= f.text_field :name %><br>
+    <%= f.label t('sessions_new.email')%>
+    <%= f.email_field :email %><br>
+    <%= f.label t('sessions_new.password')%>
+    <%= f.password_field :password %><br>
+    <%= f.submit "ログイン"%><br>
+  <% end %>  
+<div>
