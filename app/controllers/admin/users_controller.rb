@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  def indes
+  def index
   end
 
   def new

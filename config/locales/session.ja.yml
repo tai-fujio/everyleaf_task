@@ -5,3 +5,4 @@ ja:
     name: ユーザーネーム
     email: メールアドレス
     password: パスワード
+    log_in: ログイン
