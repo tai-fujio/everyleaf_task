@@ -15,7 +15,7 @@
     <% end %><br>
     <%= f.label t('new.status')%>
     <%= f.select :status ,{},{},{style: "width:80px;"} do %>
-      <% ["未着手","着手","完了"].each do |status| %>
+      <% ["未着手","着手中","完了"].each do |status| %>
       <%= content_tag(:option, status, value: status) %>
       <% end %>
     <% end %><br>

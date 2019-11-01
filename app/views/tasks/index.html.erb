@@ -25,7 +25,7 @@
     <tr>
       <th scope = "col"><%= t('index.name')%></th>
       <th scope = "col"><%= t('index.detail')%></th>
-      <th scope = "col"><%= sort_link(@q,:deadline, t('index.deadline'),default_order: :desc) %></th>
+      <th scope = "col"><%= sort_link(@q,:deadline, t('index.deadline'),default_order: :asc) %></th>
       <th scope = "col"><%= sort_link(@q,:priority,t('index.priority'),default_order: :desc) %></th>
       <th colspan = 4 scope = "col"><%= t('index.status')%></th>
     </tr>

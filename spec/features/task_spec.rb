@@ -21,7 +21,7 @@ RSpec.feature "タスク管理機能", type: :feature do
     fill_in "task_detail", with: "タスク詳細テスト"
     fill_in "task_deadline", with: Time.now + 1
     select "高", from: "task_priority"
-    select "着手", from:  "task_status"
+    select "着手中", from:  "task_status"
     click_button("新規作成")
     expect(page.find(".show_name")).to have_content "タスク名テスト"
     expect(page.find(".show_detail")).to have_content "タスク詳細テスト"
