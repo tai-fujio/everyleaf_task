@@ -53,7 +53,7 @@
         <td><p class = index_priority>
           <% if task.priority %>
             <% if task.priority.split.last == "高" %>
-              <p class = task_priority_color><%= task.priority.split.last%></p>
+              <p class = red_color><%= task.priority.split.last%></p>
             <% else %>
               <%= task.priority.split.last %>
             <% end %>

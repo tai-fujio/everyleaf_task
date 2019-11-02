@@ -1,5 +1,5 @@
 <div class = "container">
-  <h1><%= t('admin_users_index.title')%></h1>
+  <h1 class = "red_color"><%= t('admin_users_index.title')%></h1>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -54,6 +54,6 @@
       </tr>
     <% end %>
   </table>
-  <%=link_to t('admin_users_index.create'),admin_users_path%>
+  <%=link_to t('admin_users_index.create'),new_admin_user_path%>
   <%= will_paginate @users, previous_label: ' &lt 前へ', next_label: '次へ &gt' ,renderer: BootstrapPagination::Rails%>
 </div>
