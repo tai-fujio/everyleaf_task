@@ -12,7 +12,7 @@ ja:
     status: ステータス
     index_search: タスク検索
     title: タスク管理アプリ
-    user_name: 登録者
+    user_name: ユーザー
   edit:
     task_edit: タスク編集
     name: タスク名
@@ -38,3 +38,9 @@ ja:
     deadline: 終了期限
     priority: 優先順位
     status: ステータス
+  session_new:
+    title: タスク管理アプリ
+    sessions: ログイン画面
+    name: ユーザーネーム
+    email: メールアドレス
+    password: パスワード
