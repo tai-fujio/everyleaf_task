@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     resources :users
   end  
   resources :tasks
+  resources :sessions
 end

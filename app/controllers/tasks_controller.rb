@@ -1,9 +1,11 @@
 class TasksController < ApplicationController
+  include SessionsHelper
   before_action :set_task, only: [:show,:edit,:update,:destroy]
 
   def index
+    current_user
     @q = Task.ransack(params[:q])
-    @tasks = @q.result(distinct: true).paginate(page: params[:page], per_page: 10) 
+    @tasks = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
   end
 
   def show; end
