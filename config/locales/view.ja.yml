@@ -12,6 +12,7 @@ ja:
     status: ステータス
     index_search: タスク検索
     title: タスク管理アプリ
+    user_name: 登録者
   edit:
     task_edit: タスク編集
     name: タスク名

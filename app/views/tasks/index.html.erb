@@ -23,6 +23,7 @@
   <%= will_paginate @tasks, previous_label: ' &lt 前へ', next_label: '次へ &gt' %>
   <table class="table table-striped">
     <tr>
+      <th scope = "col"><%= t('index.user_name')%></th>
       <th scope = "col"><%= t('index.name')%></th>
       <th scope = "col"><%= t('index.detail')%></th>
       <th scope = "col"><%= sort_link(@q,:deadline, t('index.deadline'),default_order: :asc) %></th>
@@ -31,6 +32,7 @@
     </tr>
     <%@tasks.each do |task|%>
     <tr>
+      <td><p class = index_user_name><%= task.user.name %>&nbsp;</p></td>
       <td><p class = index_name><%= task.name%>&nbsp;</p></td>
       <td><p class = index_detail><%= task.detail%>&nbsp;</p></td>
       <td><p class = index_deadline><%= task.deadline%>&nbsp;</p></td>
