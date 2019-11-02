@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   def index
     current_user
     @q = Task.ransack(params[:q])
-    @tasks = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
+    @tasks = @q.result(distinct: true).where(user_id: current_user.id).paginate(page: params[:page], per_page: 10)
   end
 
   def show; end

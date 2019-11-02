@@ -1,0 +1,51 @@
+<div class = "container">
+  <h1><%= t('admin_users_index.title')%></h1>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%=link_to "Home" ,admin_users_path ,class: "nav-link btn btn-outline-primary"%>
+        </li>
+        <li class="nav-item active">
+          <p>&emsp;</p>
+        </li>
+        <li class="nav-item active">
+          <%=link_to "Log out" ,session_path(current_user.id), method: :delete ,class: "nav-link btn btn-outline-primary"%>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <h1 class = "title"><%= t('admin_users_index.users')%></h1>
+  <%= will_paginate @users, previous_label: ' &lt 前へ', next_label: '次へ &gt' %>
+  <table class="table table-striped">
+    <tr>
+      <th scope = "col"><%= t('admin_users_index.user_type')%></th>
+      <th scope = "col"><%= t('admin_users_index.user_name')%></th>
+      <th scope = "col"><%= t('admin_users_index.task_counts')%></th>
+      <th colspan = 4 scope = "col"><%= t('admin_users_index.user_date')%></th>
+    </tr>
+    <%@users.each do |user|%>
+      <tr>
+        <td>
+        <%if user.admin? == true%>
+          <%=t('admin_users_index.admin')%>
+        <%else%>
+          <%=t('admin_users_index.user')%>
+        <%end%>
+        </td>
+        <td><%= user.name%>&nbsp;</p></td>
+        <td><%= user.tasks.count%>&nbsp;</p></td>
+        <td><%= user.created_at.strftime("%Y年 %m月 %d日") %>&nbsp;</p></td>
+        <td class="btn-link"><p class = admin_users_index_detail_button><%= link_to t('admin_users_index.detail'),admin_users_path%>&nbsp;</p></td>
+        <td class="admin_users_index_edit_button"><%= link_to t('admin_users_index.edit'),edit_admin_user_path(user.id)%>&nbsp;</td>
+        <td class="admin_users_index_delete_button"><%= link_to t('admin_users_index.delete'),admin_user_path(user.id),method: :delete,data:{confirm: "削除してもよろしいですか"}%>&nbsp;</td>
+      </tr>
+    <% end %>
+  </table>
+  <%=link_to t('admin_users_index.create'),admin_users_path%>
+  <%= will_paginate @users, previous_label: ' &lt 前へ', next_label: '次へ &gt' ,renderer: BootstrapPagination::Rails%>
+</div>

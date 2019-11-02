@@ -45,3 +45,16 @@ ja:
     email: メールアドレス
     password: パスワード
     log_in: ログイン
+  admin_users_index:
+    title: 管理用画面
+    users: ユーザー一覧
+    user_type: 権限
+    task_counts: タスク数
+    create: ユーザー作成
+    user_name: ユーザー名
+    user_date: ユーザー登録日
+    admin: 管理ユーザー
+    user: 一般ユーザー
+    detail: タスク詳細
+    edit: ユーザー情報変更
+    delete: ユーザー削除
