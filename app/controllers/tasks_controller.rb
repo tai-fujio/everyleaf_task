@@ -22,7 +22,7 @@ class TasksController < ApplicationController
       flash[:notice] = "タスクを作成しました"
       redirect_to task_path(@task.id)
     else
-      flash[:notice] = "タスクの作成に失敗しました"
+      flash.now[:notice] = "タスクの作成に失敗しました"
       render :new
     end
   end  
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
       flash[:notice] = "タスクを編集しました"
       redirect_to tasks_path
     else 
-      flash[:notice] = "タスクの編集に失敗しました"
+      flash.now[:notice] = "タスクの編集に失敗しました"
       render :edit
     end  
   end  

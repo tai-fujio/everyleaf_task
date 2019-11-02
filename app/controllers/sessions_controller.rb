@@ -6,13 +6,13 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to tasks_path
     else
-      flash[:notice] = "ログインに失敗しました"
+      flash.now[:notice] = "ログインに失敗しました"
       render :new
     end
   end
   def destroy
     reset_session
-    flash[:notice] = "ログアウトしました"
+    flash.now[:notice] = "ログアウトしました"
     redirect_to root_path
   end
 end
