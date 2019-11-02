@@ -2,7 +2,8 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show,:edit,:update,:destroy]
 
   def index
-    @tasks = Task.order(created_at: :desc)
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result(distinct: true).paginate(page: params[:page], per_page: 10) 
   end
 
   def show; end
@@ -14,11 +15,12 @@ class TasksController < ApplicationController
   def create
     @task = Task.create(task_params)
     if @task.save
-    flash[:notice] = "タスクを作成しました"
-    redirect_to task_path(@task.id)
+      @task.priority.split
+      flash[:notice] = "タスクを作成しました"
+      redirect_to task_path(@task.id)
     else
-    flash[:notice] = "タスクの作成に失敗しました"
-    render :new
+      flash[:notice] = "タスクの作成に失敗しました"
+      render :new
     end
   end  
 
@@ -36,6 +38,7 @@ class TasksController < ApplicationController
       flash[:notice] = "タスクを編集しました"
       redirect_to tasks_path
     else 
+      flash[:notice] = "タスクの編集に失敗しました"
       render :edit
     end  
   end  
@@ -46,7 +49,11 @@ class TasksController < ApplicationController
   end
 
   def task_params
-  params.require(:task).permit(:task_name,:task_details)
+  params.require(:task).permit(:name,:detail,:deadline,:priority,:status,:key)
   end
+
+  def search_params
+  params.require(:q).permit(:name_cont)
+  end 
 
 end

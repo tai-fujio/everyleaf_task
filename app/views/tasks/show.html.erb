@@ -1,6 +1,9 @@
 <div class = "container">
-<h1><%= t('show.task_details')%></h1>
-  <p class = "show_task_name"><%= t('show.task_name') %> : <%=@task.task_name %></p>
-  <p class = "show_task_details"><%= t('show.task_details')%> : <%= @task.task_details %></p>
+<h1 class = "title"><%= t('show.detail')%></h1>
+  <p class = "show_name"><%= t('show.name') %> : <%=@task.name %></p>
+  <p class = "show_detail"><%= t('show.detail')%> : <%= @task.detail %></p>
+  <p class = "show_deadline"><%= t('show.deadline')%> : <%= @task.deadline %></p>
+  <p class = "show_priority"><%= t('show.priority')%> : <%= @task.priority.split.last %></p>
+  <p class = "show_status"><%= t('show.status')%> : <%= @task.status %></p>
   <%= link_to t('show.back'), tasks_path %>
-</div>  
+</div>

@@ -1,20 +1,25 @@
 <div class = "container">
-  <h1><%= t('edit.task_edit')%></h1>
-  <% if @task.errors.any? %>
-    <div>
-      <ul>
-        <% @task.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>  
-      </ul>
-    </div>
-  <% end %>
+  <h1 class = "title"><%= t('edit.task_edit')%></h1>
   <%= form_with(model:@task,local:true) do |f| %>
-    <%= f.label t('edit.task_name') %> :
-    <%= f.text_field :task_name %><br>
-    <%= f.label t('edit.task_details')%> :
-    <%= f.text_area :task_details %><br>
-    <%= f.submit t('edit.edit_button')%><br>
+    <%= f.label t('edit.name') %>
+    <%= f.text_field :name %><br>
+    <%= f.label t('edit.detail')%>
+    <%= f.text_field :detail %><br>
+    <%= f.label t('edit.deadline')%>
+    <%= f.date_field :deadline %><br>
+    <%= f.label t('new.priority')%>
+    <%= f.select :priority ,{},{},{style: "width:50px;"} do %>
+      <% {a: "低",b: "中",c: "高"}.each do |key,value| %>
+      <%= content_tag(:option, value, value:[key,value]) %>
+      <% end %>
+    <% end %><br>
+    <%= f.label t('edit.status')%>
+    <%= f.select :status ,{},{},{style: "width:80px;"} do %>
+      <% ["未着手","着手中","完了"].each do |status| %>
+      <%= content_tag(:option, status, value: status) %>
+      <% end %>
+    <% end %><br>
+    <%= f.submit t('edit.edit_button'),class: "create_task_button btn-primary"%><br>
   <% end %>
   <%= link_to t('edit.back'), tasks_path %>
 </div>   

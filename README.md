@@ -11,8 +11,8 @@
 |:--:|:--:|
 |id|integer|
 |user_id(FK)|references|
-|task_name|string|
-|task_details|text|
+|name|string|
+|detail|text|
 |task_deadline|date|
 |task_priority|integer|
 |task_status|integer|
@@ -40,12 +40,10 @@
 1. Herokuにログインする $ heroku login
 1. アセットファイルをプリコンパイルする rails assets:precompile RAILS_ENV=production
 1. git commitでコミットする
-1. Herokuに新規アプリケーションをつくる
- $ heroku create
-1. Herokuにデプロイする
-1. 番号付きリスト1 $ git push heroku master
-    - pushがrejectされた場合
-        - $ heroku buildpacks:set heroku/ruby
-        - $ heroku buildpacks:add --index 1 heroku/nodejs を試す
+1. Herokuに新規アプリケーションをつくる $ heroku create
+1. Herokuにデプロイする $ git push heroku master
+  - pushがrejectされた場合
+    - $ heroku buildpacks:set heroku/ruby
+    - $ heroku buildpacks:add --index 1 heroku/nodejs を試す
 1. DBのmigrationを行う $ heroku run rails db:migrate
 1. Herokuアプリし確認する　$ heroku configでアドレスを確認

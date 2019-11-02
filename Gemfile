@@ -31,6 +31,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -41,15 +43,19 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'chromedriver-helper'
-  gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'webdrivers'
   gem 'selenium-webdriver'
   gem 'launchy'
   gem 'capybara-webkit'
-  gem 'factory_bot_rails'
+
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt', '~> 3.1.11'
 gem 'rails_12factor', group: :production
+gem 'ransack'
+gem 'will_paginate'
+gem 'bootstrap-sass'
+gem 'will_paginate-bootstrap', '1.0.1'
+gem 'activesupport'
