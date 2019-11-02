@@ -12,4 +12,9 @@ class SessionsController < ApplicationController
       render :new
     end
   end
+  def destroy
+    reset_sesson
+    flash[:notice] = "ログアウトしました"
+    redirect_to root_path
+  end
 end

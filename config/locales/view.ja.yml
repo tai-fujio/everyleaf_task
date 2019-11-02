@@ -38,9 +38,10 @@ ja:
     deadline: 終了期限
     priority: 優先順位
     status: ステータス
-  session_new:
+  sessions_new:
     title: タスク管理アプリ
     sessions: ログイン画面
     name: ユーザーネーム
     email: メールアドレス
     password: パスワード
+    log_in: ログイン
