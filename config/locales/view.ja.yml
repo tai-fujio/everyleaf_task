@@ -11,8 +11,9 @@ ja:
     priority: 優先順位
     status: ステータス
     index_search: タスク検索
-    title: タスク管理アプリ
+    title: タスク管理
     user_name: ユーザー
+    admin_home: 管理画面
   edit:
     task_edit: タスク編集
     name: タスク名
@@ -58,3 +59,4 @@ ja:
     detail: タスク詳細
     edit: ユーザー情報変更
     delete: ユーザー削除
+    tasks: タスク画面

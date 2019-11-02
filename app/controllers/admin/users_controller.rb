@@ -1,7 +1,10 @@
 class Admin::UsersController < ApplicationController
+  include SessionsHelper
   def index
+    current_user
     @tasks = Task.all
     @users = User.all.paginate(page: params[:page], per_page: 10)
+    @user = User.find(current_user.id)
   end
   def new; end
   def show; end
