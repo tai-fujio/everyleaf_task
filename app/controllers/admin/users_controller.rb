@@ -17,14 +17,14 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @users = User.all
-    if @user.admin_or_not == false || @users.where(admin_or_not: true).count > 1
-      @user.destroy
-      flash[:notice] = "ユーザーを削除しました"
-      redirect_to admin_users_path
-    else
-      flash[:notice] = "管理者がいなくなるため削除できません"
-      redirect_to admin_users_path
-    end
+    # if @user.admin_or_not == false || @users.where(admin_or_not: true).count > 1
+    @user.destroy
+    flash[:notice] = "ユーザーを削除しました"
+    redirect_to admin_users_path
+    # else
+    #   flash[:notice] = "管理者がいなくなるため削除できません"
+    #   redirect_to admin_users_path
+    # end
   end
   def update; end
   def create
