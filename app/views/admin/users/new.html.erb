@@ -26,9 +26,9 @@
         <%= f.label t('admin_users_new.user_type') %>
       </td>
       <td>
-        <%= f.radio_button :admin? ,true%>
+        <%= f.radio_button :admin_or_not ,true%>
         <%= f.label t('admin_users_new.admin') %>
-        <%= f.radio_button :admin? ,false %>
+        <%= f.radio_button :admin_or_not ,false %>
         <%= f.label t('admin_users_new.user') %>
       </td>
     </tr>

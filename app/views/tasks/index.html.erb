@@ -10,7 +10,7 @@
         <li class="nav-item active">
           <%=link_to "Home" ,tasks_path ,class: "nav-link btn btn-outline-primary"%>
         </li>
-        <% if @user.admin? == true%>
+        <% if @user.admin_or_not == true%>
         <li class="nav-item active">
           <p>&emsp;</p>
         </li>

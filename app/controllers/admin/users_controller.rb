@@ -9,11 +9,15 @@ class Admin::UsersController < ApplicationController
   def new
     @user = User.new
   end
-  def show; end
+  def show
+    @user = User.find(params[:id])
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result(distinct: true).where(user_id: @user.id).paginate(page: params[:page], per_page: 10)
+  end
   def destroy
     @user = User.find(params[:id])
     @users = User.all
-    if @user.admin? == false || @users.where(admin?: true).count > 1
+    if @user.admin_or_not == false || @users.where(admin_or_not: true).count > 1
       @user.destroy
       flash[:notice] = "ユーザーを削除しました"
       redirect_to admin_users_path
@@ -36,6 +40,6 @@ class Admin::UsersController < ApplicationController
   def edit; end
   private
   def user_params
-    params.require(:user).permit(:password_digest,:name,:email,:admin?)
+    params.require(:user).permit(:password_confirmation,:password,:name,:email,:admin_or_not)
   end
 end

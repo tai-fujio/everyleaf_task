@@ -26,5 +26,5 @@ Task.create!(
 #   email: email,
 #   password: "aaaaaa",
 #   password_confirmation: "aaaaaa",
-#   admin?: true)
+#   admin_or_not: true)
 # }

@@ -13,7 +13,7 @@ ja:
     index_search: タスク検索
     title: タスク管理
     user_name: ユーザー
-    admin_home: 管理画面
+    admin_home: ユーザー管理
   edit:
     task_edit: タスク編集
     name: タスク名
@@ -71,3 +71,19 @@ ja:
     back: 戻る
     admin: 管理ユーザー
     user: 一般ユーザー
+  admin_users_show:
+    title: のタスク一覧
+    tasks: タスク一覧
+    name: タスク名
+    detail: タスク詳細
+    details: 詳細
+    edit: 編集
+    destroy: 削除
+    create: 新規作成
+    deadline: 終了期限
+    priority: 優先順位
+    status: ステータス
+    index_search: タスク検索
+    user_name: ユーザー
+    admin_home: ユーザー管理
+    back: 戻る

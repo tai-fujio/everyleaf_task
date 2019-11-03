@@ -3,6 +3,6 @@ FactoryBot.define do
     name { "MyString" }
     email { "MyString" }
     password_digest { "MyString" }
-    admin? { false }
+    admin_or_not { false }
   end
 end
