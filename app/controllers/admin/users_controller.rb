@@ -15,12 +15,20 @@ class Admin::UsersController < ApplicationController
     @tasks = @q.result(distinct: true).where(user_id: @user.id).paginate(page: params[:page], per_page: 10)
   end
   def destroy
-    if @user.destroy
+    current_user
+    if @user.id == @current_user.id
+      @user.destroy
+      flash[:notice] = "アカウントを削除しました"
+      redirect_to new_session_path
+    else
+      if
+      @user.destroy
       flash[:notice] = "ユーザーを削除しました"
       redirect_to admin_users_path
-    else
+      else
       flash[:notice] = "管理者がいなくなるため削除できません"
       redirect_to admin_users_path
+      end  
     end
   end
   def update

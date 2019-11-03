@@ -12,7 +12,7 @@
 
   <body>
     <% if notice || (@task == true && @task.erros.any? == true) || (@user == true && @user.erros.any? == true)%>
-      <div class="alert alert-danger" role="alert" style ="margin:30px;"><p><%= notice %></p>
+      <div class="alert alert-danger" role="alert" style ="margin:30px;"><p><%= notice.html_safe %></p>
         <% if @task %>
           <div>
             <ul>

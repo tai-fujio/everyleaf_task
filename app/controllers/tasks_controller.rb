@@ -17,7 +17,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create(task_params)
-    @task.user_id = 1
+    @task.user_id = current_user.id
     if @task.save
       @task.priority.split
       flash[:notice] = "タスクを作成しました"
