@@ -1,0 +1,27 @@
+<div class = "container">
+  <h1 class = "title"><%= t('users_show.title')%></h1>
+  <table>
+    <tr>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= t('users_show.name') %></td>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <td><%= t('users_show.email') %></td>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <td><%= t('users_show.user_type') %></td>
+      <td>
+        <% if @user.admin_or_not == true%>
+        <%= t('users_show.admin') %>
+        <% else %>
+        <%= t('users_show.user') %>
+        <% end %>
+      </td>
+    </tr>
+    </table><br>
+  <%= link_to t('users_show.back'), tasks_path %>
+</div>

@@ -10,12 +10,18 @@
         <li class="nav-item active">
           <%=link_to "Home" ,tasks_path ,class: "nav-link btn btn-outline-primary"%>
         </li>
+        <li class="nav-item active">
+          <p>&emsp;</p>
+        </li>
+        <li class="nav-item active">
+          <%=link_to t('index.user_info') ,user_path(@user.id) ,class: "nav-link btn btn-outline-primary"%>
+        </li>
         <% if @user.admin_or_not == true%>
         <li class="nav-item active">
           <p>&emsp;</p>
         </li>
         <li class="nav-item active">
-          <%=link_to t('index.admin_home') ,admin_users_path ,class: "nav-link btn btn-outline-primary"%>
+          <%=link_to t('index.admin_home') ,admin_users_path ,class: "nav-link btn btn-outline-primary",style: "color:red;"%>
         </li>
         <% end %>
         <li class="nav-item active">

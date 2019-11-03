@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   skip_before_action :must_login
-  before_action :must_not_login
   include SessionsHelper
+  include UsersHelper
+  
   def new
+    must_not_login
     @user = User.new
   end
   def create
@@ -16,6 +18,10 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  def show
+    @user = User.find(params[:id])
+    must_login_user
+  end  
   private
   def user_params
     params.require(:user).permit(:password_confirmation,:password,:name,:email,:admin_or_not)

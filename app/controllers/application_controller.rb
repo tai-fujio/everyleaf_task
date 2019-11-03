@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     redirect_to tasks_path(id: current_user.id) if current_user
   end
   def must_admin
-    unless current_user && User.find(@current_user.id).admin_or_not == true
+    unless current_user && (User.find(@current_user.id).admin_or_not == true)
       flash[:notice] = "権限がありません"
       redirect_to tasks_path(id: current_user.id)
     end
