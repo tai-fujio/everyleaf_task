@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :must_login
+  before_action :must_not_login
   include SessionsHelper
   def new
     @user = User.new

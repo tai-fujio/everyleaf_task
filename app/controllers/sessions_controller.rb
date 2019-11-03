@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action :must_login
   def new; end
   def create
     user = User.find_by(email: params[:session][:email].downcase)
