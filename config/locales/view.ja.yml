@@ -46,6 +46,7 @@ ja:
     email: メールアドレス
     password: パスワード
     log_in: ログイン
+    user_create: 新規登録はこちら
   admin_users_index:
     title: 管理用画面
     users: ユーザー一覧
@@ -87,3 +88,14 @@ ja:
     user_name: ユーザー
     admin_home: ユーザー管理
     back: 戻る
+  users_new:
+    title: ユーザー登録
+    name: ユーザー名
+    email: メールアドレス
+    password: パスワード
+    password_confirmation: パスワード確認
+    user_type: 権限
+    create: 登録
+    back: 戻る
+    admin: 管理ユーザー(本番前テスト用)
+    user: 一般ユーザー

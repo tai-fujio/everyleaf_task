@@ -17,8 +17,9 @@
     <td><%= f.password_field :password %></td>
   </tr>
   <tr>
-    <td><%= f.submit "ログイン"%></td>
+    <td><%= f.submit t('sessions_new.log_in')%></td>
   </tr>
   <% end %>
   </table>
+  <%= link_to t('sessions_new.user_create'),new_user_path%>
  <div>

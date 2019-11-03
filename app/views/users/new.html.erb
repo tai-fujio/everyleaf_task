@@ -1,0 +1,39 @@
+<div class = "container">
+  <h1 class = "title"><%= t('users_new.title')%></h1>
+  <table>
+  <tr>
+    <th></th>
+  </tr>
+  <%= form_with(model: @user,local: true) do |f| %>
+    <tr>
+      <td><%= f.label t('users_new.name') %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label t('users_new.email') %></td>
+      <td><%= f.text_field :email %></td>
+    </tr>
+    <tr>
+      <td><%= f.label t('users_new.password') %></td>
+      <td><%= f.password_field :password %></td>
+    </tr>
+    <tr>
+      <td><%= f.label t('users_new.password_confirmation') %></td>
+      <td><%= f.password_field :password_confirmation %></td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label t('users_new.user_type') %>
+      </td>
+      <td>
+        <%= f.radio_button :admin_or_not ,true%>
+        <%= f.label t('users_new.admin') %>
+        <%= f.radio_button :admin_or_not ,false %>
+        <%= f.label t('users_new.user') %>
+      </td>
+    </tr>
+    </table>
+    <%= f.submit t('users_new.create'),class: "new_user_button btn-primary"%><br>
+  <% end %>
+  <%= link_to t('users_new.back'), root_path%>
+</div>
