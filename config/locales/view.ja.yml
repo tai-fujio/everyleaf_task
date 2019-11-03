@@ -88,6 +88,17 @@ ja:
     user_name: ユーザー
     admin_home: ユーザー管理
     back: 戻る
+  admin_users_edit:
+    title: ユーザー情報変更
+    name: ユーザー名
+    email: メールアドレス
+    password: パスワード
+    password_confirmation: パスワード確認
+    user_type: 権限
+    edit: 変更
+    back: 戻る
+    admin: 管理ユーザー
+    user: 一般ユーザー
   users_new:
     title: ユーザー登録
     name: ユーザー名
