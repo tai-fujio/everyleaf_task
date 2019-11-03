@@ -9,6 +9,6 @@ class User < ApplicationRecord
   
   private
   def must_at_least_one_admin
-    throw(:abort) if User.where(admin_or_not: true).count < 2
+    throw(:abort) if User.where(admin_or_not: true).count < 2 && self.admin_or_not == true
   end
 end
