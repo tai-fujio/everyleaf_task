@@ -6,7 +6,7 @@ detail = "タスク詳細#{n}"
 deadline = Time.now+10
 priority = "1: 高"
 status = "完了"
-user_id = n
+user_id = 1
 Task.create!(
   name: name,
   detail: detail,
