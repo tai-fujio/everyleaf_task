@@ -2,7 +2,6 @@ require 'rails_helper'
 require 'selenium-webdriver'
 require "active_support/time"
 require "rack_session_access/capybara"
-include SessionsHelper
 
 RSpec.describe User, type: :system do
   describe "Userテスト" do
@@ -68,8 +67,22 @@ RSpec.describe User, type: :system do
         expect(current_url).to have_content '/users/new'
       end
     end
+    context "users#showのテスト" ,driver: :webkit do
+      it "ログインしているユーザは自分のマイページのみ見られる" do
+        visit root_path
+        fill_in "session[name]", with: "test1"
+        fill_in "session[email]", with: "test1@gmail.com"
+        fill_in "session[password]", with: "111111"
+        click_button("ログイン")
+        click_on("user_info_btn")
+        expect(page).to have_content "test1@gmail.com"
+        visit "/users/#{@user2.id}"
+        expect(page).to_not have_content "test2@gmail.com"
+        expect(page).to have_content "タスク管理"
+      end
+    end
     context "users#newのテスト" ,driver: :webkit do
-      it "ユーザー登録をすればログイン状態になる、ログアウトをクリックすればログアウト状態になる" do
+      it "ユーザー登録をすればユーザー画面に移行する、ログアウトをクリックすればログアウト状態になる" do
         visit new_user_path
         fill_in "user[name]", with: "tester"
         fill_in "user[email]", with: "tester@gmail.com"
@@ -79,12 +92,11 @@ RSpec.describe User, type: :system do
         click_button("登録")
         @user = User.last
         page.set_rack_session(session_id: @user.id)
-        visit tasks_path
         expect(page.get_rack_session.include?("user_id")).to eq true
         visit tasks_path
         click_on("log_out_btn")
         expect(page.get_rack_session.include?("user_id")).to eq false
       end
-    end
+    end  
   end
 end

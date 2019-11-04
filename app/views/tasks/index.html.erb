@@ -14,7 +14,7 @@
           <p>&emsp;</p>
         </li>
         <li class="nav-item active">
-          <%=link_to t('index.user_info') ,user_path(@user.id) ,class: "nav-link btn btn-outline-primary"%>
+          <%=link_to t('index.user_info') ,user_path(@user.id) ,class: "nav-link btn btn-outline-primary", id: "user_info_btn"%>
         </li>
         <% if @user.admin_or_not == true%>
         <li class="nav-item active">
