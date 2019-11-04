@@ -28,7 +28,7 @@
           <p>&emsp;</p>
         </li>
         <li class="nav-item active">
-          <%=link_to "Log out" ,session_path(current_user.id), method: :delete ,class: "nav-link btn btn-outline-primary"%>
+          <%=link_to "Log out" ,session_path(current_user.id), method: :delete ,class: "nav-link btn btn-outline-primary",id:"log_out_btn"%>
         </li>
       </ul>
       <%= search_form_for(@q,local: true) do |s|%>
