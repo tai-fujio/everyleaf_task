@@ -1,5 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :user
+  has_many :labels, dependent: :destroy
+  has_many :label_labelings, through: :labels, source: :labling
   validates :name , presence:true, length: { maximum:100 }
   validates :detail , presence:true, length: { maximum:300 }
   validates :status , presence:true
