@@ -54,6 +54,7 @@
       </tr>
     <% end %>
   </table>
-  <%=link_to t('admin_users_index.create'),new_admin_user_path%>
+  <%=link_to t('admin_users_index.create_user'),new_admin_user_path%><br>
+  <%=link_to t('admin_users_index.create_labeling'),new_labeling_path%>
   <%= will_paginate @users, previous_label: ' &lt 前へ', next_label: '次へ &gt' ,renderer: BootstrapPagination::Rails%>
 </div>

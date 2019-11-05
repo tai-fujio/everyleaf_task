@@ -54,7 +54,7 @@ ja:
     users: ユーザー一覧
     user_type: 権限
     task_counts: タスク数
-    create: ユーザー作成
+    create_user: ユーザー作成
     user_name: ユーザー名
     user_date: ユーザー登録日
     admin: 管理ユーザー
@@ -63,6 +63,7 @@ ja:
     edit: ユーザー情報変更
     delete: ユーザー削除
     tasks: タスク画面
+    create_labeling: タスクタイプ作成
   admin_users_new:
     title: ユーザー登録
     name: ユーザー名
@@ -120,3 +121,8 @@ ja:
     back: 戻る
     admin: 管理ユーザー
     user: 一般ユーザー
+  admin_labeling_new:
+    title: タスクタイプ登録
+    labeling_name: タスクタイプ
+    back: 戻る
+    create: 登録

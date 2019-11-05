@@ -1,0 +1,16 @@
+<div class = "container">
+  <h1 class = "title"><%= t('admin_labeling_new.title')%></h1>
+  <table>
+  <tr>
+    <th></th>
+  </tr>
+  <%= form_with(model: @labeling,url:admin_users_path,local: true) do |f| %>
+    <tr>
+      <td><%= f.label t('admin_labeling_new.labeling_name') %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    </table>
+    <%= f.submit t('admin_labeling_new.create'),class: "new_labeling_button btn-primary"%><br>
+  <% end %>
+  <%= link_to t('admin_labeling_new.back'), admin_users_path %>
+</div>

@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   end  
   resources :tasks
   resources :sessions
+  get 'labelings/new', to: 'labelings#new', as: 'new_labeling'
+  post 'labelings', to: 'labelings#create'
 end
