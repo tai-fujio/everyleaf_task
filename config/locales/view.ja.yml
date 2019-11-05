@@ -40,6 +40,7 @@ ja:
     deadline: 終了期限
     priority: 優先順位
     status: ステータス
+    labeling: タスク種別
   sessions_new:
     title: タスク管理アプリ
     sessions: ログイン画面

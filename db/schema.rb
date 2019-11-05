@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_041033) do
+ActiveRecord::Schema.define(version: 2019_11_05_070940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "labelings", force: :cascade do |t|
     t.string "name", limit: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "task_id"
+    t.index ["task_id"], name: "index_labelings_on_task_id"
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.integer "labeling_id"
+    t.integer "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,5 +52,6 @@ ActiveRecord::Schema.define(version: 2019_11_05_041033) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "labelings", "tasks"
   add_foreign_key "tasks", "users"
 end
