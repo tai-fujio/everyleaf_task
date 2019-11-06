@@ -11,8 +11,8 @@
   </head>
 
   <body>
-    <% if notice || (@task == true && @task.erros.any? == true) %>
-      <div class="alert alert-danger" role="alert" style ="margin:30px;"><p><%= notice %></p>
+    <% if notice || (@task == true && @task.erros.any? == true) || (@user == true && @user.erros.any? == true)%>
+      <div class="alert alert-danger" role="alert" style ="margin:30px;"><p><%= notice.html_safe %></p>
         <% if @task %>
           <div>
             <ul>
@@ -21,7 +21,16 @@
               <% end %>  
             </ul>
           </div>
-        <% end %>   
+        <% end %> 
+        <% if @user %>
+          <div>
+            <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>  
+            </ul>
+          </div>
+        <% end %>  
       </div>
     <% end %>
     <%= yield %>

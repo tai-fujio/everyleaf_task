@@ -1,0 +1,25 @@
+<div class = "container">
+  <h1><%= t('sessions_new.title')%></h1>
+  <h1 class = "title"><%= t('sessions_new.sessions')%></h1>
+  <table>
+  <tr><th></th></tr>
+  <%= form_with(scope: :session,url:sessions_path,local:true) do |f| %>
+  <tr>
+    <td><%= f.label t('sessions_new.name') %></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label t('sessions_new.email')%></td>
+    <td><%= f.email_field :email %></td>
+  </tr>
+  <tr>
+    <td><%= f.label t('sessions_new.password')%></td>
+    <td><%= f.password_field :password %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit t('sessions_new.log_in')%></td>
+  </tr>
+  <% end %>
+  </table>
+  <%= link_to t('sessions_new.user_create'),new_user_path%>
+ <div>

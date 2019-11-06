@@ -11,7 +11,10 @@ ja:
     priority: 優先順位
     status: ステータス
     index_search: タスク検索
-    title: タスク管理アプリ
+    title: タスク管理
+    user_name: ユーザー
+    admin_home: ユーザー管理
+    user_info: ユーザー情報
   edit:
     task_edit: タスク編集
     name: タスク名
@@ -37,3 +40,82 @@ ja:
     deadline: 終了期限
     priority: 優先順位
     status: ステータス
+  sessions_new:
+    title: タスク管理アプリ
+    sessions: ログイン画面
+    name: ユーザーネーム
+    email: メールアドレス
+    password: パスワード
+    log_in: ログイン
+    user_create: 新規登録はこちら
+  admin_users_index:
+    title: 管理用画面
+    users: ユーザー一覧
+    user_type: 権限
+    task_counts: タスク数
+    create: ユーザー作成
+    user_name: ユーザー名
+    user_date: ユーザー登録日
+    admin: 管理ユーザー
+    user: 一般ユーザー
+    detail: タスク詳細
+    edit: ユーザー情報変更
+    delete: ユーザー削除
+    tasks: タスク画面
+  admin_users_new:
+    title: ユーザー登録
+    name: ユーザー名
+    email: メールアドレス
+    password: パスワード
+    password_confirmation: パスワード確認
+    user_type: 権限
+    create: 登録
+    back: 戻る
+    admin: 管理ユーザー
+    user: 一般ユーザー
+  admin_users_show:
+    title: のタスク一覧
+    tasks: タスク一覧
+    name: タスク名
+    detail: タスク詳細
+    details: 詳細
+    edit: 編集
+    destroy: 削除
+    create: 新規作成
+    deadline: 終了期限
+    priority: 優先順位
+    status: ステータス
+    index_search: タスク検索
+    user_name: ユーザー
+    admin_home: ユーザー管理
+    back: 戻る
+  admin_users_edit:
+    title: ユーザー情報変更
+    name: ユーザー名
+    email: メールアドレス
+    password: パスワード
+    password_confirmation: パスワード確認
+    user_type: 権限
+    edit: 変更
+    back: 戻る
+    admin: 管理ユーザー
+    user: 一般ユーザー
+  users_new:
+    title: ユーザー登録
+    name: ユーザー名
+    email: メールアドレス
+    password: パスワード
+    password_confirmation: パスワード確認
+    user_type: 権限
+    create: 登録
+    back: 戻る
+    admin: 管理ユーザー(本番前テスト用)
+    user: 一般ユーザー
+  users_show:
+    title: ユーザー情報
+    name: ユーザー名
+    email: メールアドレス
+    user_type: 権限
+    back: 戻る
+    admin: 管理ユーザー
+    user: 一般ユーザー

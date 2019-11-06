@@ -1,9 +1,12 @@
 class TasksController < ApplicationController
+  include SessionsHelper
   before_action :set_task, only: [:show,:edit,:update,:destroy]
 
   def index
+    current_user
     @q = Task.ransack(params[:q])
-    @tasks = @q.result(distinct: true).paginate(page: params[:page], per_page: 10) 
+    @tasks = @q.result(distinct: true).where(user_id: current_user.id).paginate(page: params[:page], per_page: 10)
+    @user = User.find(current_user.id)
   end
 
   def show; end
@@ -14,12 +17,13 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create(task_params)
+    @task.user_id = current_user.id
     if @task.save
       @task.priority.split
       flash[:notice] = "タスクを作成しました"
       redirect_to task_path(@task.id)
     else
-      flash[:notice] = "タスクの作成に失敗しました"
+      flash.now[:notice] = "タスクの作成に失敗しました"
       render :new
     end
   end  
@@ -33,12 +37,11 @@ class TasksController < ApplicationController
   def edit; end
 
   def update
-    @task = Task.find(params[:id])
     if @task.update(task_params)
       flash[:notice] = "タスクを編集しました"
       redirect_to tasks_path
     else 
-      flash[:notice] = "タスクの編集に失敗しました"
+      flash.now[:notice] = "タスクの編集に失敗しました"
       render :edit
     end  
   end  
@@ -49,7 +52,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-  params.require(:task).permit(:name,:detail,:deadline,:priority,:status,:key)
+  params.require(:task).permit(:name,:detail,:deadline,:priority,:status)
   end
 
   def search_params

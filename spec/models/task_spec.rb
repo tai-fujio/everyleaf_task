@@ -80,7 +80,7 @@ RSpec.describe Task, type: :model do
       expect(task.errors.messages[:status]).to include("を入力してください")
     end
   end
-  describe 'Taskモデル検索ロジックテスト' do
+  describe '検索ロジックテスト' do
     before do
       @task_test1 = FactoryBot.create(:task_test,name:"タスク名テスト1",detail:"タスク詳細テスト1")
       @task_test2 = FactoryBot.create(:task_test,name:"タスク名テスト2",detail:"タスク詳細テスト2")
