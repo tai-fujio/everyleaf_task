@@ -33,6 +33,7 @@ ja:
     deadline: 終了期限
     priority: 優先順位
     status: ステータス
+    register_labeling: タスクタイプ登録
   show:
     detail: タスク詳細
     name: タスク名

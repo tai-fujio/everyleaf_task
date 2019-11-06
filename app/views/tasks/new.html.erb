@@ -19,6 +19,10 @@
       <%= content_tag(:option, status, value: status) %>
       <% end %>
     <% end %><br>
+    <%=f.fields_for :labels do |l|%>
+      <%= l.label t('new.register_labeling')%>
+      <%= l.collection_select :labeling_id,Labeling.all,:id,:name,include_blank: "未選択" %><br>
+    <% end %>
     <%= f.submit t('new.create'),class: "create_task_button btn-primary"%><br>
   <% end %>
   <%= link_to t('new.back'), tasks_path%>

@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :tasks
   resources :sessions
   resources :labelings
-  # get 'labelings/new', to: 'labelings#new', as: 'new_labeling'
-  # post 'labelings', to: 'labelings#create'
+  delete 'labels/:id', to: 'labels#destroy', as: 'label'
+  post 'labels', to: 'labels#create'
 end

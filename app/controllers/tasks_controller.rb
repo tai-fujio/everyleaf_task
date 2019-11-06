@@ -13,6 +13,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    1.times { @task.labels.build }
   end
 
   def create
@@ -21,6 +22,7 @@ class TasksController < ApplicationController
     if @task.save
       @task.priority.split
       flash[:notice] = "タスクを作成しました"
+      binding.pry
       redirect_to task_path(@task.id)
     else
       flash.now[:notice] = "タスクの作成に失敗しました"
@@ -52,7 +54,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-  params.require(:task).permit(:name,:detail,:deadline,:priority,:status)
+  params.require(:task).permit(:name,:detail,:deadline,:priority,:status,labels_attributes:[:task_id,:labeling_id])
   end
 
   def search_params

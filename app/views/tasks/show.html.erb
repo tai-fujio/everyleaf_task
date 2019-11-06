@@ -7,7 +7,7 @@
   <p class = "show_status"><%= t('show.status')%> : <%= @task.status %></p>
   <p class = "show_labeling"><%= t('show.labeling')%> :
   <%= @task.label_labelings.each do |labeling|%>
-  <%#= labeling.name %>
+  <%= labeling.name %>
   <% end %>
   </p>
   <%= link_to t('show.back'), tasks_path %>
