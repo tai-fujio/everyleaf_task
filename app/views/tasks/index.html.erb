@@ -39,11 +39,11 @@
       <% end %>
     </div>
   </nav>
-  <h1 class = "title"><%= t('index.tasks')%></h1>
+  <h1 class = "title"><%=@user.name%><%= t('index.tasks')%></h1>
   <%= will_paginate @tasks, previous_label: ' &lt 前へ', next_label: '次へ &gt' %>
   <table class="table table-striped">
     <tr>
-      <th scope = "col"><%= t('index.user_name')%></th>
+      <th scope = "col"><%= t('index.labeling_name')%></th>
       <th scope = "col"><%= t('index.name')%></th>
       <th scope = "col"><%= t('index.detail')%></th>
       <th scope = "col"><%= sort_link(@q,:deadline, t('index.deadline'),default_order: :asc) %></th>
@@ -52,7 +52,8 @@
     </tr>
     <%@tasks.each do |task|%>
       <tr>
-        <td><p class = index_user_name><%= task.user.name %>&nbsp;</p></td>
+        <td><p class = index_labeling_name><% task.label_labelings.each do |n| %>
+        <%= n.name %>&nbsp;<% end %></p></td>
         <td><p class = index_name><%= task.name%>&nbsp;</p></td>
         <td><p class = index_detail><%= task.detail%>&nbsp;</p></td>
         <td><p class = index_deadline><%= task.deadline%>&nbsp;</p></td>

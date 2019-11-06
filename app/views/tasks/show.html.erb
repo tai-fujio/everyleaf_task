@@ -6,7 +6,7 @@
   <p class = "show_priority"><%= t('show.priority')%> : <%= @task.priority.split.last %></p>
   <p class = "show_status"><%= t('show.status')%> : <%= @task.status %></p>
   <p class = "show_labeling"><%= t('show.labeling')%> :
-  <%= @task.label_labelings.each do |labeling|%>
+  <% @task.label_labelings.each do |labeling|%>
   <%= labeling.name %>
   <% end %>
   </p>

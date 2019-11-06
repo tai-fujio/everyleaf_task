@@ -1,5 +1,5 @@
 <div class = "container">
-  <h1 class = "title"><%= @user.name %><%= t('admin_users_show.title') %></h1>
+  <h1 class = "title"><%= t('admin_users_show.title') %></h1>
   <%= will_paginate @tasks, previous_label: ' &lt 前へ', next_label: '次へ &gt' %>
   <table class="table table-striped">
     <tr>

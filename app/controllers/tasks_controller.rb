@@ -22,7 +22,6 @@ class TasksController < ApplicationController
     if @task.save
       @task.priority.split
       flash[:notice] = "タスクを作成しました"
-      binding.pry
       redirect_to task_path(@task.id)
     else
       flash.now[:notice] = "タスクの作成に失敗しました"
