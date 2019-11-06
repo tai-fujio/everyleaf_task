@@ -122,7 +122,10 @@ ja:
     admin: 管理ユーザー
     user: 一般ユーザー
   admin_labeling_new:
-    title: タスクタイプ登録
+    title: タスクタイプ登録画面
     labeling_name: タスクタイプ
     back: 戻る
     create: 登録
+    registered_labelings: 登録情報
+    new_labelings: タスクタイプ登録
+    delete: 削除

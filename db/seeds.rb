@@ -1,7 +1,7 @@
 n = 0
 10.times {
 n += 1
-user_name = "ユーザー#{n}"
+user_name = "user#{n}"
 user_email = "user#{n}@gmail.com"
 user_password = "password"
 user_password_confirmation = "password"
@@ -19,7 +19,7 @@ n = 0
 n += 1
 task_name = "タスク名#{n}"
 task_detail = "タスク詳細#{n}"
-task_deadline = Time.now+10
+task_deadline = Time.now+n
 task_priority = "1: 高"
 task_status = "完了"
 Task.create!(
@@ -28,13 +28,12 @@ Task.create!(
   deadline: task_deadline,
   priority: task_priority,
   status: task_status,
-  user_id: 1)
+  user_id: n)
 }
 
 list = ["仕事","プライベート","その他"]
 list.each do |n|
 Labeling.create!(
-  name: n,
-  task_id: 1
+  name: n
 )
 end
