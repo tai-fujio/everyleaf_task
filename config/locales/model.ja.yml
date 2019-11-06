@@ -17,3 +17,8 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         admin_or_not: ユーザー権限
+      label:
+        task_id: 対応するタスク
+        labeling_id: 対応するタスクタイプ
+      labeling:
+        name: タスクタイプ名

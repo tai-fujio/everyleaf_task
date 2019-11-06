@@ -4,8 +4,10 @@ class LabelingsController < ApplicationController
     @labeling = Labeling.new
   end
   def create
+    @labelings = Labeling.all
     @labeling = Labeling.new(labeling_params)
-    if @labeling.save
+    if @labeling.valid?
+      @labeling.save
       flash[:notice] = "タスクタイプを新規作成しました"
       redirect_to new_labeling_path
     else
