@@ -25,6 +25,7 @@ ja:
     deadline: 終了期限
     priority: 優先順位
     status: ステータス
+    labeling_name: ラベルタイプ
   new:
     task_new_create: タスク新規作成
     name: タスク名
