@@ -19,9 +19,11 @@
       <%= content_tag(:option, status, value: status) %>
       <% end %>
     <% end %><br>
-    <%=f.fields_for :labels do |l|%>
-      <%= l.label t('new.register_labeling')%>
-      <%= l.collection_select :labeling_id,Labeling.order(id: :desc),:id,:name,include_blank: t('new.not_selected') %><br>
+    <%#= f.fields_for :labels do |l|%>
+    <%= f.label t('new.register_labeling')%>
+    <% Labeling.order(id: :asc).each do |labeling| %>
+    <%=f.check_box(:label_ids,{multiple:true, checked:labeling[:checked],disabled:labeling[:disabled],include_hidden:false},labeling[:id])%>
+    <%=labeling.name%>
     <% end %>
     <%= f.submit t('new.create'),class: "create_task_button btn-primary"%><br>
   <% end %>

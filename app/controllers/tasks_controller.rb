@@ -49,11 +49,10 @@ class TasksController < ApplicationController
 
   private
   def set_task
-  @task = Task.find(params[:id])
-  end
+  @task = Task.find(params[:id])  end
 
   def task_params
-  params.require(:task).permit(:name,:detail,:deadline,:priority,:status,labels_attributes:[:task_id,:labeling_id])
+  params.require(:task).permit(:name,:detail,:deadline,:priority,:status,label_ids:[])
   end
 
   def search_params
