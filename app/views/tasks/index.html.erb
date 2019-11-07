@@ -53,7 +53,10 @@
     <%@tasks.each do |task|%>
       <tr>
         <td><p class = index_labeling_name><% task.label_labelings.each do |n| %>
-        <%= n.name %>&nbsp;<% end %></p></td>
+          <a class="circle">
+            <span><%= n.name %></span>
+          </a>&nbsp;
+        <% end %></p></td>
         <td><p class = index_name><%= task.name%>&nbsp;</p></td>
         <td><p class = index_detail><%= task.detail%>&nbsp;</p></td>
         <td><p class = index_deadline><%= task.deadline%>&nbsp;</p></td>

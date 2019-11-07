@@ -12,3 +12,24 @@
 .red_color{
   color: red;
 }
+
+.circle {	
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: pink;
+}
+
+.circle span {
+  position: absolute;
+  display: inline-block;
+  font-size: 0.7rem;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width :40px;
+  text-align:center;
+}
