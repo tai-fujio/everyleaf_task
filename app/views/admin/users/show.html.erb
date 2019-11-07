@@ -1,36 +1,4 @@
 <div class = "container">
-  <h1 class = "title"><%= t('admin_users_show.title') %></h1>
-  <%= will_paginate @tasks, previous_label: ' &lt 前へ', next_label: '次へ &gt' %>
-  <table class="table table-striped">
-    <tr>
-      <th scope = "col"><%= t('admin_users_show.user_name')%></th>
-      <th scope = "col"><%= t('admin_users_show.name')%></th>
-      <th scope = "col"><%= t('admin_users_show.detail')%></th>
-      <th scope = "col"><%= sort_link(@q,:deadline, t('admin_users_show.deadline'),default_order: :asc) %></th>
-      <th scope = "col"><%= sort_link(@q,:priority,t('admin_users_show.priority'),default_order: :desc) %></th>
-      <th colspan = 4 scope = "col"><%= t('admin_users_show.status')%></th>
-    </tr>
-    <%@tasks.each do |task|%>
-      <tr>
-        <td><p class = admin_users_show_user_name><%= task.user.name %>&nbsp;</p></td>
-        <td><p class = admin_users_show_name><%= task.name%>&nbsp;</p></td>
-        <td><p class = admin_users_show_detail><%= task.detail%>&nbsp;</p></td>
-        <td><p class = admin_users_show_deadline><%= task.deadline%>&nbsp;</p></td>
-        <td><p class = admin_users_show_priority>
-          <% if task.priority %>
-            <% if task.priority.split.last == "高" %>
-              <p class = red_color><%= task.priority.split.last%></p>
-            <% else %>
-              <%= task.priority.split.last %>
-            <% end %>
-          <% end %>  
-        <td><p class = admin_users_show_status><%= task.status%>&nbsp;</p></td>
-        <td class="btn-link"><p class = admin_users_show_details_button><%= link_to t('admin_users_show.details'),task_path(task.id)%>&nbsp;</p></td>
-        <td class="btn-link"><%= link_to t('admin_users_show.edit'),edit_task_path(task.id)%>&nbsp;</td>
-        <td class="btn-link"><%= link_to t('admin_users_show.destroy'),task_path(task.id),method: :delete,data:{confirm: "削除してもよろしいですか"}%>&nbsp;</td>
-      </tr>
-    <% end %>
-  </table>
-  <%=link_to t('admin_users_show.back'),admin_users_path%>
-  <%= will_paginate @tasks, previous_label: ' &lt 前へ', next_label: '次へ &gt' ,renderer: BootstrapPagination::Rails%>
+<h1 class = "red_color"><%= t('admin_users_index.title')%></h1>
+<%= render partial: "tasks/index" %>
 </div>

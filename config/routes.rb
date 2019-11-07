@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   resources :users ,only: [:new,:create,:show]
   namespace :admin do
     resources :users
+    resources :labelings
   end  
   resources :tasks
   resources :sessions
-  resources :labelings
   delete 'labels/:id', to: 'labels#destroy', as: 'label'
   post 'labels', to: 'labels#create'
 end

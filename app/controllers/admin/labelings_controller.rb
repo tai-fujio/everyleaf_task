@@ -1,4 +1,4 @@
-class LabelingsController < ApplicationController
+class Admin::LabelingsController < ApplicationController
   def new
     @labelings = Labeling.all
     @labeling = Labeling.new
@@ -9,7 +9,7 @@ class LabelingsController < ApplicationController
     if @labeling.valid?
       @labeling.save
       flash[:notice] = "タスクタイプを新規作成しました"
-      redirect_to new_labeling_path
+      redirect_to new_admin_labeling_path
     else
       flash.now[:notice] = "タスクタイプの新規作成に失敗しました"
       render :new
@@ -19,7 +19,7 @@ class LabelingsController < ApplicationController
     @labeling = Labeling.find(params[:id])
     @labeling.destroy
     flash[:notice] = "タスクタイプを削除しました"
-    redirect_to new_labeling_path
+    redirect_to new_admin_labeling_path
   end
   private
   def labeling_params

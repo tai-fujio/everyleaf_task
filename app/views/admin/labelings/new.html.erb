@@ -1,10 +1,11 @@
 <div class = "container">
+  <h1 class = "red_color"><%= t('admin_users_index.title')%></h1>
   <h1 class = "title"><%= t('admin_labeling_new.title')%></h1>
   <h5 class = "title"><%= t('admin_labeling_new.registered_labelings')%></h5>
     <% @labelings.each do |labeling|%>
       <ul>
         <li><%= labeling.name%>
-        &nbsp;<%= link_to t('admin_labeling_new.delete'),labeling_path(labeling.id),method: :delete,data:{confirm: "削除してもよろしいですか"}%></li>
+        &nbsp;<%= link_to t('admin_labeling_new.delete'),admin_labeling_path(labeling.id),method: :delete,data:{confirm: "削除してもよろしいですか"}%></li>
       </ul>
     <% end %>
   <h5 class = "title"><%= t('admin_labeling_new.new_labelings')%></h5>
@@ -13,7 +14,7 @@
       <th></th>
     </tr>
     <tr>
-    <%= form_with(model: @labeling,local: true) do |f| %>
+    <%= form_with(model: @labeling,url:admin_labelings_path,local: true) do |f| %>
       <td><%= f.label t('admin_labeling_new.labeling_name') %></td>
       <td><%= f.text_field :name %></td>
     </tr>
