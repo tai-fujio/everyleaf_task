@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  before do
+    @user_test1 = FactoryBot.create(:user)
+  end
   describe 'バリデーションテスト' do
-    before do
-      @user_test1 = FactoryBot.create(:user)
-    end
     it "is valid with a name, email,password,password_confirmation,admin_or_not" do
       expect(@user_test1).to be_valid
       user = User.new(email: "test@gmail.com")
@@ -32,7 +32,6 @@ RSpec.describe User, type: :model do
   end
   describe "メソッドテスト" do
     before do
-      @user_test1 = FactoryBot.create(:user)
       @user_test2 = FactoryBot.create(:user, email:"test2@gmail.com",admin_or_not: true)
       @user_test3 = FactoryBot.create(:user, email:"test3@gmail.com",admin_or_not: true)
     end

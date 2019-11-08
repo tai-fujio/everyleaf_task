@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :labeling do
-    name { "MyString" }
+    name { "ラベルタイプ名テスト" }
   end
 end

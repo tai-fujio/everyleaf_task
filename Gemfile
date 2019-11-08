@@ -28,11 +28,16 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
-  gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'hirb'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'hirb'
+  gem 'hirb-unicode-steakknife'
 end
 
 group :development do
