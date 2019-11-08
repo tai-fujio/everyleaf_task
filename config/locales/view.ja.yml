@@ -115,7 +115,7 @@ ja:
     user_type: 権限
     create: 登録
     back: 戻る
-    admin: 管理ユーザー(本番前テスト用)
+    admin: 管理ユーザー(テスト用)
     user: 一般ユーザー
   users_show:
     title: ユーザー情報

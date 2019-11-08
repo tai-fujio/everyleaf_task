@@ -4,8 +4,9 @@ class TasksController < ApplicationController
 
   def index
     current_user
-    @q = Task.ransack(params[:q])
-    @tasks = @q.result(distinct: true).where(user_id: current_user.id).paginate(page: params[:page], per_page: 10)
+    @ransack_search = Task.includes(labels: :labelings).ransack(params[:q])
+    @ransack_sort = Task.ransack(params[:q])
+    @tasks = @ransack_sort.result(distinct: true).where(user_id: current_user.id).paginate(page: params[:page], per_page: 10)
     @user = User.find(current_user.id)
   end
 
@@ -21,7 +22,7 @@ class TasksController < ApplicationController
     # @task = Task.create(task_params)
     # @task.user_id = current_user.id
     if @task.save
-      @task.priority.split
+      # @task.priority.split
       flash[:notice] = "タスクを作成しました"
       redirect_to task_path(@task.id)
     else

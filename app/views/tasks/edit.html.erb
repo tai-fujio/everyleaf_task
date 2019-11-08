@@ -9,7 +9,7 @@
     <%= f.date_field :deadline %><br>
     <%= f.label t('new.priority')%>
     <%= f.select :priority ,{},{},{style: "width:50px;"} do %>
-      <% {a: "低",b: "中",c: "高"}.each do |key,value| %>
+      <% {"1": "高","2": "中","3": "低"}.each do |key,value| %>
       <%= content_tag(:option, value, value:[key,value]) %>
       <% end %>
     <% end %><br>
@@ -24,7 +24,6 @@
       <%=f.check_box(:label_labeling_ids,
         {
           multiple: true,
-          disabled:labeling[:disabled],
           include_hidden:false
         },
         labeling[:id])%>

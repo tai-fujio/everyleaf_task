@@ -15,6 +15,9 @@ class Admin::UsersController < ApplicationController
   def show
     @q = Task.ransack(params[:q])
     @tasks = @q.result(distinct: true).where(user_id: @user.id).paginate(page: params[:page], per_page: 10)
+    @ransack_search = Task.includes(labels: :labelings).ransack(params[:q])
+    @ransack_sort = Task.ransack(params[:q])
+    @tasks = @ransack_sort.result(distinct: true).where(user_id: current_user.id).paginate(page: params[:page], per_page: 10)
   end
   def destroy
     current_user

@@ -31,9 +31,10 @@
           <%=link_to "Log out" ,session_path(current_user.id), method: :delete ,class: "nav-link btn btn-outline-primary",id:"log_out_btn"%>
         </li>
       </ul>
-      <%= search_form_for(@q,local: true) do |s|%>
+      <%= search_form_for(@ransack_search,local: true) do |s|%>
         <%= s.label :name, t('index.index_search')%>
         <%= s.search_field:name_cont_all,placeholder: "タスク名",style: "width:120px;"%>
+        <%= s.select :label_labelings_name_cont_all, Labeling.all.map{ |l| [l.name] }, :prompt => "ラベルタイプ"%>
         <%= s.select :status_cont_all, [["未着手"], ["着手中"], ["完了"]], :prompt => "ステータス" %>
         <%= s.submit class:"btn-primary"%>
       <% end %>
@@ -46,8 +47,8 @@
       <th scope = "col"><%= t('index.labeling_name')%></th>
       <th scope = "col"><%= t('index.name')%></th>
       <th scope = "col"><%= t('index.detail')%></th>
-      <th scope = "col"><%= sort_link(@q,:deadline, t('index.deadline'),default_order: :asc) %></th>
-      <th scope = "col"><%= sort_link(@q,:priority,t('index.priority'),default_order: :desc) %></th>
+      <th scope = "col"><%= sort_link(@ransack_sort,:deadline, t('index.deadline'),default_order: :asc) %></th>
+      <th scope = "col"><%= sort_link(@ransack_sort,:priority,t('index.priority'),default_order: :desc) %></th>
       <th colspan = 4 scope = "col"><%= t('index.status')%></th>
     </tr>
     <%@tasks.each do |task|%>
