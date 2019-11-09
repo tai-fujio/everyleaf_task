@@ -4,8 +4,9 @@ class TasksController < ApplicationController
 
   def index
     current_user
-    @q = Task.ransack(params[:q])
-    @tasks = @q.result(distinct: true).where(user_id: current_user.id).paginate(page: params[:page], per_page: 10)
+    @ransack_search = Task.includes(labels: :labelings).ransack(params[:q])
+    @ransack_sort = Task.ransack(params[:q])
+    @tasks = @ransack_sort.result(distinct: true).where(user_id: current_user.id).paginate(page: params[:page], per_page: 10)
     @user = User.find(current_user.id)
   end
 
@@ -16,10 +17,12 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.create(task_params)
-    @task.user_id = current_user.id
+    @task = current_user.tasks.build(task_params)
+    # @task.labels.build(labeling_id: params[:labeling_ids]).save!
+    # @task = Task.create(task_params)
+    # @task.user_id = current_user.id
     if @task.save
-      @task.priority.split
+      # @task.priority.split
       flash[:notice] = "タスクを作成しました"
       redirect_to task_path(@task.id)
     else
@@ -40,19 +43,18 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       flash[:notice] = "タスクを編集しました"
       redirect_to tasks_path
-    else 
+    else
       flash.now[:notice] = "タスクの編集に失敗しました"
       render :edit
-    end  
-  end  
+    end
+  end
 
   private
   def set_task
-  @task = Task.find(params[:id])
-  end
+  @task = Task.find(params[:id])  end
 
   def task_params
-  params.require(:task).permit(:name,:detail,:deadline,:priority,:status)
+  params.require(:task).permit(:name,:detail,:deadline,:priority,:status,label_labeling_ids:[])
   end
 
   def search_params

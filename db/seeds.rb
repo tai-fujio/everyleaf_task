@@ -1,30 +1,39 @@
 n = 0
 10.times {
 n += 1
-name = "タスク名#{n}"
-detail = "タスク詳細#{n}"
-deadline = Time.now+10
-priority = "1: 高"
-status = "完了"
-user_id = 1
-Task.create!(
-  name: name,
-  detail: detail,
-  deadline: deadline,
-  priority: priority,
-  status: status,
-  user_id: user_id)
+user_name = "user#{n}"
+user_email = "user#{n}@gmail.com"
+user_password = "password"
+user_password_confirmation = "password"
+user_admin_or_not = true
+User.create!(
+  name: user_name,
+  email: user_email,
+  password: user_password,
+  password_confirmation: user_password_confirmation,
+  admin_or_not: user_admin_or_not)
 }
 
-# n = 0
-# 10.times {
-# n += 1
-# name = "ユーザー#{n}"
-# email = "fujio#{n}@gmail.com"
-# User.create!(
-#   name: name,
-#   email: email,
-#   password: "aaaaaa",
-#   password_confirmation: "aaaaaa",
-#   admin_or_not: true)
-# }
+n = 0
+10.times {
+n += 1
+task_name = "タスク名#{n}"
+task_detail = "タスク詳細#{n}"
+task_deadline = Time.now+n
+task_priority = "1: 高"
+task_status = "完了"
+Task.create!(
+  name: task_name,
+  detail: task_detail,
+  deadline: task_deadline,
+  priority: task_priority,
+  status: task_status,
+  user_id: n)
+}
+
+list = ["仕事","プライベート","その他"]
+list.each do |n|
+Labeling.create!(
+  name: n
+)
+end

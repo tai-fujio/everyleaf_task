@@ -1,0 +1,82 @@
+<div class = "container">
+  <h1><%= t('index.title')%></h1>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%=link_to "Home" ,tasks_path ,class: "nav-link btn btn-outline-primary"%>
+        </li>
+        <li class="nav-item active">
+          <p>&emsp;</p>
+        </li>
+        <li class="nav-item active">
+          <%=link_to t('index.user_info') ,user_path(@user.id) ,class: "nav-link btn btn-outline-primary", id: "user_info_btn"%>
+        </li>
+        <% if @user.admin_or_not == true%>
+        <li class="nav-item active">
+          <p>&emsp;</p>
+        </li>
+        <li class="nav-item active">
+          <%=link_to t('index.admin_home') ,admin_users_path ,class: "nav-link btn btn-outline-primary",style: "color:red;"%>
+        </li>
+        <% end %>
+        <li class="nav-item active">
+          <p>&emsp;</p>
+        </li>
+        <li class="nav-item active">
+          <%=link_to "Log out" ,session_path(current_user.id), method: :delete ,class: "nav-link btn btn-outline-primary",id:"log_out_btn"%>
+        </li>
+      </ul>
+      <%= search_form_for(@ransack_search,local: true) do |s|%>
+        <%= s.label :name, t('index.index_search')%>
+        <%= s.search_field:name_cont_all,placeholder: "タスク名",style: "width:120px;"%>
+        <label hidden for="q_label_labelings_name_cont_all">ラベルタイプ</label>
+        <%= s.select :label_labelings_name_cont_all, Labeling.all.map{ |l| [l.name] }, :prompt => "ラベルタイプ"%>
+        <%= s.select :status_cont_all, [["未着手"], ["着手中"], ["完了"]], :prompt => "ステータス" %>
+        <%= s.submit class:"btn-primary"%>
+      <% end %>
+    </div>
+  </nav>
+  <h1 class = "title"><%=@user.name%><%= t('index.tasks')%></h1>
+  <%= will_paginate @tasks, previous_label: ' &lt 前へ', next_label: '次へ &gt' %>
+  <table class="table table-striped">
+    <tr>
+      <th scope = "col"><%= t('index.labeling_name')%></th>
+      <th scope = "col"><%= t('index.name')%></th>
+      <th scope = "col"><%= t('index.detail')%></th>
+      <th scope = "col"><%= sort_link(@ransack_sort,:deadline, t('index.deadline'),default_order: :asc) %></th>
+      <th scope = "col"><%= sort_link(@ransack_sort,:priority,t('index.priority'),default_order: :desc) %></th>
+      <th colspan = 4 scope = "col"><%= t('index.status')%></th>
+    </tr>
+    <%@tasks.each do |task|%>
+      <tr class = index_tasks>
+        <td><p class = index_labeling_name><% task.label_labelings.each do |n| %>
+          <a class="circle">
+            <span><%= n.name %></span>
+          </a>&nbsp;
+        <% end %></p></td>
+        <td><p class = index_name><%= task.name%>&nbsp;</p></td>
+        <td><p class = index_detail><%= task.detail%>&nbsp;</p></td>
+        <td><p class = index_deadline><%= task.deadline%>&nbsp;</p></td>
+        <td><p class = index_priority>
+          <% if task.priority %>
+            <% if task.priority.split.last == "高" %>
+              <p class = red_color><%= task.priority.split.last%></p>
+            <% else %>
+              <%= task.priority.split.last %>
+            <% end %>
+          <% end %>  
+        <td><p class = index_status><%= task.status%>&nbsp;</p></td>
+        <td class="btn-link"><p class = index_details_button><%= link_to t('index.details'),task_path(task.id)%>&nbsp;</p></td>
+        <td class="btn-link"><%= link_to t('index.edit'),edit_task_path(task.id)%>&nbsp;</td>
+        <td class="btn-link"><%= link_to t('index.destroy'),task_path(task.id),method: :delete,data:{confirm: "削除してもよろしいですか"}%>&nbsp;</td>
+      </tr>
+    <% end %>
+  </table>
+  <%=link_to t('index.create'),new_task_path%>
+  <%= will_paginate @tasks, previous_label: ' &lt 前へ', next_label: '次へ &gt' ,renderer: BootstrapPagination::Rails%>
+</div>

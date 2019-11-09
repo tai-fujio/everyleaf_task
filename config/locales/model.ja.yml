@@ -3,7 +3,8 @@ ja:
     models:
       task: タスク
       user: ユーザー
-
+      label: ラベル
+      labeling: タスクタイプ
     attributes:
       task:
         name: タスク名
@@ -17,3 +18,9 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         admin_or_not: ユーザー権限
+      label:
+        labeling: 対応するタスクタイプ
+        task_id: 対応するタスク
+        labeling_id: 対応するタスクタイプ
+      labeling:
+        name: タスクタイプ名

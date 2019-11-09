@@ -1,6 +1,6 @@
 ja:
   index:
-    tasks: タスク一覧
+    tasks: のタスク一覧
     name: タスク名
     detail: タスク詳細
     details: 詳細
@@ -15,6 +15,7 @@ ja:
     user_name: ユーザー
     admin_home: ユーザー管理
     user_info: ユーザー情報
+    labeling_name: タスクタイプ
   edit:
     task_edit: タスク編集
     name: タスク名
@@ -24,6 +25,7 @@ ja:
     deadline: 終了期限
     priority: 優先順位
     status: ステータス
+    labeling_name: ラベルタイプ
   new:
     task_new_create: タスク新規作成
     name: タスク名
@@ -33,6 +35,8 @@ ja:
     deadline: 終了期限
     priority: 優先順位
     status: ステータス
+    register_labeling: タスクタイプ登録
+    not_selected: 未選択
   show:
     detail: タスク詳細
     name: タスク名
@@ -40,6 +44,7 @@ ja:
     deadline: 終了期限
     priority: 優先順位
     status: ステータス
+    labeling: タスク種別
   sessions_new:
     title: タスク管理アプリ
     sessions: ログイン画面
@@ -53,7 +58,7 @@ ja:
     users: ユーザー一覧
     user_type: 権限
     task_counts: タスク数
-    create: ユーザー作成
+    create_user: ユーザー作成
     user_name: ユーザー名
     user_date: ユーザー登録日
     admin: 管理ユーザー
@@ -62,6 +67,7 @@ ja:
     edit: ユーザー情報変更
     delete: ユーザー削除
     tasks: タスク画面
+    create_labeling: タスクタイプ作成
   admin_users_new:
     title: ユーザー登録
     name: ユーザー名
@@ -109,7 +115,7 @@ ja:
     user_type: 権限
     create: 登録
     back: 戻る
-    admin: 管理ユーザー(本番前テスト用)
+    admin: 管理ユーザー(テスト用)
     user: 一般ユーザー
   users_show:
     title: ユーザー情報
@@ -119,3 +125,11 @@ ja:
     back: 戻る
     admin: 管理ユーザー
     user: 一般ユーザー
+  admin_labeling_new:
+    title: タスクタイプ登録画面
+    labeling_name: タスクタイプ
+    back: 戻る
+    create: 登録
+    registered_labelings: 登録情報
+    new_labelings: タスクタイプ登録
+    delete: 削除
