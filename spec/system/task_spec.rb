@@ -19,6 +19,7 @@ RSpec.describe Task, type: :system do
     fill_in "session[email]", with: "test1@gmail.com"
     fill_in "session[password]", with: "111111"
     click_button("ログイン")
+    resize_window_by([1280,720])
   end  
   describe "Taskテスト" do
     context "tasks#indexのテスト" ,driver: :webkit do
