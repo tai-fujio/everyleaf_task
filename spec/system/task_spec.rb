@@ -165,6 +165,6 @@ RSpec.describe Task, type: :system do
           expect(task.native.text).to have_content "プライベート"
         end
       end
-    end  
+    end
   end
 end
