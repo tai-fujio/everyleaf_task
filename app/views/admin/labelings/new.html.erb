@@ -5,7 +5,7 @@
     <% @labelings.each do |labeling|%>
       <ul>
         <li><%= labeling.name%>
-        &nbsp;<%= link_to t('admin_labeling_new.delete'),admin_labeling_path(labeling.id),method: :delete,data:{confirm: "削除してもよろしいですか"}%></li>
+        &nbsp;<%= link_to t('admin_labeling_new.delete'),admin_labeling_path(labeling.id),method: :delete,data:{confirm: "削除してもよろしいですか"},class:"labeling_delete_button"%></li>
       </ul>
     <% end %>
   <h5 class = "title"><%= t('admin_labeling_new.new_labelings')%></h5>
