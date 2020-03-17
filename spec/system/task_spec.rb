@@ -10,7 +10,7 @@ RSpec.describe Task, type: :system do
     @task_test2 = FactoryBot.create(:task_test,name:"タスク名テスト2",detail:"タスク詳細テスト2",deadline: "2049-12-31".to_date,user_id:@user.id)
     @task_test3 = FactoryBot.create(:task_test,name:"タスク名テスト3",detail:"タスク詳細テスト3",deadline: "2039-12-31".to_date,user_id:@user.id)
     @task_test4 = FactoryBot.create(:task_test,name:"タスク名テスト4",detail:"タスク詳細テスト4",deadline: "2029-12-31".to_date,user_id:@user.id)
-    @task_test5 = FactoryBot.create(:task_test,name:"タスク名テスト5",detail:"タスク詳細テスト5",deadline: "2019-12-31".to_date,user_id:@user.id)
+    @task_test5 = FactoryBot.create(:task_test,name:"タスク名テスト5",detail:"タスク詳細テスト5",deadline: "2028-12-31".to_date,user_id:@user.id)
     @labeling1 = FactoryBot.create(:labeling,name:"仕事")
     @labeling2 = FactoryBot.create(:labeling,name:"プライベート")
     @labeling3 = FactoryBot.create(:labeling,name:"その他")
@@ -54,7 +54,7 @@ RSpec.describe Task, type: :system do
         click_on("終了期限")
         sleep 1
         tasks = page.all(".index_deadline")
-        expect(tasks[0].native.text ).to have_content "2019-12-31"
+        expect(tasks[0].native.text ).to have_content "2028-12-31"
         expect(tasks[1].native.text ).to have_content "2029-12-31"
         expect(tasks[2].native.text ).to have_content "2039-12-31"
         expect(tasks[3].native.text ).to have_content "2049-12-31"
@@ -68,7 +68,7 @@ RSpec.describe Task, type: :system do
         expect(tasks[2].native.text ).to have_content "2049-12-31"
         expect(tasks[3].native.text ).to have_content "2039-12-31"
         expect(tasks[4].native.text ).to have_content "2029-12-31"
-        expect(tasks[5].native.text ).to have_content "2019-12-31"
+        expect(tasks[5].native.text ).to have_content "2028-12-31"
       end
     end
 
@@ -99,7 +99,7 @@ RSpec.describe Task, type: :system do
         within_window(switch_to_window(windows.last)) do 
           expect(page).to have_content "タスク名テスト5"
           expect(page).to have_content "タスク詳細テスト5"
-          expect(page).to have_content "2019-12-31"
+          expect(page).to have_content "2028-12-31"
           expect(page).to have_content "着手中"
           expect(page).not_to have_content "完了"
         end

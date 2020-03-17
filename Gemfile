@@ -53,6 +53,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'launchy'
   gem 'capybara-webkit'
+  gem 'rack_session_access'
 
 end
 
@@ -65,3 +66,4 @@ gem 'bootstrap-sass'
 gem 'will_paginate-bootstrap', '1.0.1'
 gem 'activesupport'
 gem 'rack_session_access'
+gem "jquery-rails"
